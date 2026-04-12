@@ -72,10 +72,6 @@ npm run build
 | [app/components/pages/Usage.tsx](app/components/pages/Usage.tsx) | Renders usage sections from hardcoded data      |
 | [app/projects/[project]/page.tsx](app/projects/[project]/page.tsx) | Dynamic project page using local project lookup |
 
-## License
-
-This portfolio is based on [victoreke.com][original] by Victor Eke, licensed under MIT.
-
 <!-- Link Refs -->
 
 [nextjs]: https://nextjs.org
@@ -85,4 +81,3 @@ This portfolio is based on [victoreke.com][original] by Victor Eke, licensed und
 [framermotion]: https://www.framer.com/motion
 [nexttheme]: https://github.com/pacocoursey/next-themes
 [localhost]: http://localhost:3000
-[original]: https://victoreke.com
