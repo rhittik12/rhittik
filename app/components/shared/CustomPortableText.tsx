@@ -11,7 +11,7 @@ import { TableValueProps } from "@/types";
 
 export const CustomPortableText: PortableTextComponents = {
   types: {
-    image: ({ value }: { value?: { image?: string; alt?: string; caption?: string } }) => {
+    image: ({ value }: { value?: { image?: string; lqip?: string; alt?: string; caption?: string } }) => {
       const src = value?.image;
 
       // Keep portable text resilient when image blocks do not include a direct URL.
@@ -28,6 +28,8 @@ export const CustomPortableText: PortableTextComponents = {
             height={1080}
             quality={100}
             sizes="100vw"
+            placeholder={value?.lqip ? "blur" : "empty"}
+            blurDataURL={value?.lqip}
           />
           {value?.caption && (
             <figcaption className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
