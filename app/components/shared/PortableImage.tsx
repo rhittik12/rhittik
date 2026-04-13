@@ -2,6 +2,8 @@ import ImageComponent from "./ImageComponent";
 
 type imageProp = {
   value: {
+    image?: string;
+    lqip?: string;
     alt: string;
     caption: string;
   };

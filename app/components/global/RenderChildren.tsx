@@ -1,6 +1,6 @@
 "use client";
 
-export default function UnmountStudio({
+export default function RenderChildren({
   children,
 }: {
   children: React.ReactNode;

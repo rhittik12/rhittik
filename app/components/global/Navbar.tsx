@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/public/logo.png";
 import Theme from "./Theme";
-import UnmountStudio from "./Unmount";
+import RenderChildren from "./RenderChildren";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
@@ -18,7 +18,7 @@ export default function Navbar() {
   ];
 
   return (
-    <UnmountStudio>
+    <RenderChildren>
       <header className="text-sm py-6 md:px-16 px-6 border-b dark:border-zinc-800 border-zinc-200 z-30 md:mb-28 mb-10">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/">
@@ -46,6 +46,6 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-    </UnmountStudio>
+    </RenderChildren>
   );
 }
