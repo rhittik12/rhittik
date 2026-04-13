@@ -1,18 +1,44 @@
 import { PortableTextComponents } from "@portabletext/react";
+import Image from "next/image";
 import { BiLinkExternal, BiSolidQuoteRight } from "react-icons/bi";
-import PortableImage from "./PortableImage";
 import CodeBlock from "./CodeBlock";
 import HashScroll from "./HashScroll";
 import getYoutubeId from "@/app/utils/get-youtubeId";
 import YoutubeIframe from "./YoutubeIframe";
 import RefLink from "./RefLink";
 import Table from "./Table";
-import { QuizValueProps, TableValueProps } from "@/types";
-import Quiz from "./Quiz";
+import { TableValueProps } from "@/types";
 
 export const CustomPortableText: PortableTextComponents = {
   types: {
-    image: PortableImage,
+    image: ({ value }: { value?: { image?: string; lqip?: string; alt?: string; caption?: string } }) => {
+      const src = value?.image;
+
+      // Keep portable text resilient when image blocks do not include a direct URL.
+      if (!src) return null;
+
+      return (
+        <figure className="my-10">
+          <Image
+            className="rounded-sm object-contain object-left-top aspect-auto duration-300"
+            src={src}
+            alt={value?.alt || "Image"}
+            loading="lazy"
+            width={1920}
+            height={1080}
+            quality={100}
+            sizes="100vw"
+            placeholder={value?.lqip ? "blur" : "empty"}
+            blurDataURL={value?.lqip}
+          />
+          {value?.caption && (
+            <figcaption className="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
     code: CodeBlock,
     youtube: ({ value }: { value: { url: string } }) => {
       const id = getYoutubeId(value.url);
@@ -21,7 +47,6 @@ export const CustomPortableText: PortableTextComponents = {
     customTable: ({ value }: { value: TableValueProps }) => (
       <Table value={value} />
     ),
-    quiz: ({ value }: { value: QuizValueProps }) => <Quiz value={value} />,
   },
 
   block: {

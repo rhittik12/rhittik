@@ -1,5 +1,5 @@
 import type { HeroeType, JobType, ProfileType, ProjectType } from "@/types";
-import type { PortableTextBlock } from "sanity";
+import type { PortableTextBlock } from "@/types";
 
 const tinyBlur =
   "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";

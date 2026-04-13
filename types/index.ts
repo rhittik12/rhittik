@@ -1,5 +1,16 @@
-import { TableRow } from "@sanity/table";
-import { PortableTextBlock } from "sanity";
+export type TableRow = {
+  _key?: string;
+  _type?: "tableRow";
+  cells: string[];
+};
+
+export type PortableTextBlock = {
+  _type: string;
+  _key: string;
+  style?: string;
+  markDefs?: Array<Record<string, unknown>>;
+  children?: Array<Record<string, unknown>>;
+};
 
 export interface Table {
   rows?: TableRow[];
@@ -9,12 +20,6 @@ export interface Table {
 export interface TableValueProps {
   table?: Table;
   caption?: string;
-}
-
-export interface QuizValueProps {
-  _key: string;
-  question: string;
-  answer: string;
 }
 
 export type ProfileType = {
