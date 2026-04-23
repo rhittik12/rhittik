@@ -10,17 +10,17 @@ import RefLink from "../components/shared/RefLink";
 import { profile } from "../data/content";
 
 export const metadata: Metadata = {
-  title: "About | Victor Eke",
-  metadataBase: new URL("https://victoreke.com/about"),
+  title: "About | Rhittik Kumar Barman",
+  metadataBase: new URL("https://rhittikkumar.com/about"),
   description:
     "Learn more about my skills, experience and technical background",
   openGraph: {
-    title: "About | Victor Eke",
-    url: "https://victoreke.com/about",
+    title: "About | Rhittik Kumar Barman",
+    url: "https://rhittikkumar.com/about",
     description:
       "Learn more about my skills, experience and technical background",
     images:
-      "https://res.cloudinary.com/victoreke/image/upload/v1692635746/victoreke/og.png",
+      "https://res.cloudinary.com/rhittikkumar/image/upload/v1692635746/rhittikkumar/og.png",
   },
 };
 
