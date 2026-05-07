@@ -37,9 +37,6 @@ npm install
 Set the variables you plan to use in `.env.local`:
 
 - `NEXT_PUBLIC_UMAMI_WEBSITE_ID` (optional)
-- `NEXT_PUBLIC_GISCUS_REPO` (optional)
-- `NEXT_PUBLIC_GISCUS_REPOID` (optional)
-- `NEXT_PUBLIC_GISCUS_CATEGORYID` (optional)
 - `NEXT_PUBLIC_GITHUB_USERNAME` (optional)
 - `NEXT_PUBLIC_GITHUB_JOIN_YEAR` (optional)
 
