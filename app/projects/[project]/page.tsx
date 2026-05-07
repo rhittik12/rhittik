@@ -34,11 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${project.name} | Project`,
-    metadataBase: new URL(`https://rittikkumar.com/projects/${project.slug}`),
+    metadataBase: new URL(`https://rhittik.vercel.app/projects/${project.slug}`),
     description: project.tagline,
     openGraph: {
       images: project.coverImage?.image ?? fallbackImage,
-      url: `https://rittikkumar.com/projects/${project.slug}`,
+      url: `https://rhittik.vercel.app/projects/${project.slug}`,
       title: project.name,
       description: project.tagline,
     },

@@ -18,9 +18,9 @@ const options = {
   title: "Rhittik Kumar Barman | Software Developer and Open-Source Contributor",
   description:
     "Rhittik Kumar Barman is a Software Developer who is passionate about building solutions and contributing to open source communities",
-  url: "https://rittikbarman.com",
+  url: "https://rhittik.vercel.app",
   ogImage:
-    "https://res.cloudinary.com/rittikbarman/image/upload/v1692635746/rittikbarman/og.png",
+    "https://res.cloudinary.com/rhittikkumar/image/upload/v1692635746/rhittikkumar/og.png",
 };
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: options.title,
     url: options.url,
-    siteName: "rittikbarman.com",
+    siteName: "rhittik.vercel.app",
     locale: "en-US",
     type: "website",
     description: options.description,
