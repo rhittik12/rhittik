@@ -11,12 +11,12 @@ import { profile } from "../data/content";
 
 export const metadata: Metadata = {
   title: "About | Rhittik Kumar Barman",
-  metadataBase: new URL("https://rhittikkumar.com/about"),
+  metadataBase: new URL("https://rhittik.vercel.app/about"),
   description:
     "Learn more about my skills, experience and technical background",
   openGraph: {
     title: "About | Rhittik Kumar Barman",
-    url: "https://rhittikkumar.com/about",
+    url: "https://rhittik.vercel.app/about",
     description:
       "Learn more about my skills, experience and technical background",
     images:

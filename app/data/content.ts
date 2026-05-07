@@ -80,11 +80,11 @@ export const jobs: JobType[] = [
     name: "Freelance",
     jobTitle: "Full-Stack Developer",
     logo:
-      "",
-    url: "",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve,e_sharpen/v1778165429/ChatGPT_Image_May_7_2026_08_19_57_PM_j3rxxh.png",
+    url: "https://www.peopleperhour.com/",
     description:
-      "Building production web applications and collaborating with teams on modern front-end architecture.",
-    startDate: "2022-01-01",
+      "I’ve built and launched complete web applications for clients as a freelance Full-Stack Developer. I turn business ideas into fast, scalable, and easy-to-maintain products. I work on both frontend and backend, handle deployment, and optimize performance. I also stay in close touch with clients, improving the product step by step and providing ongoing support.",
+    startDate: "2025-04-01",
     endDate: "",
   },
 ];

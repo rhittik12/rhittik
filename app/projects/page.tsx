@@ -7,15 +7,15 @@ import PageHeading from "../components/shared/PageHeading";
 import { projects } from "@/app/data/content";
 
 export const metadata: Metadata = {
-  title: "Project | Victor Eke",
-  metadataBase: new URL("https://victoreke.com/projects"),
-  description: "Explore projects built by Victor Eke",
+  title: "Project | Rhittik Kumar Barman",
+  metadataBase: new URL("https://rhittik.vercel.app/projects"),
+  description: "Explore projects built by Rhittik Kumar Barman",
   openGraph: {
-    title: "Projects | Victor Eke",
-    url: "https://victoreke.com/projects",
-    description: "Explore projects built by Victor Eke",
+    title: "Projects | Rhittik Kumar Barman",
+    url: "https://rhittik.vercel.app/projects",
+    description: "Explore projects built by Rhittik Kumar Barman",
     images:
-      "https://res.cloudinary.com/victoreke/image/upload/v1692636087/victoreke/projects.png",
+      "https://res.cloudinary.com/rhittikkumar/image/upload/v1692636087/rhittikkumar/projects.png",
   },
 };
 
