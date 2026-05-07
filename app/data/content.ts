@@ -27,7 +27,7 @@ export const profile: ProfileType = {
   headline: "Full-Stack developer and Open-source contributor",
   profileImage: {
     image:
-      "",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778139601/ChatGPT_Image_May_7_2026_01_09_43_PM_chbgag.png",
     lqip: tinyBlur,
     alt: "Portrait of Rhittik Kumar Barman",
   },
@@ -109,27 +109,89 @@ export const heroes: HeroeType[] = [
 export const projects: ProjectType[] = [
   {
     _id: "project-1",
-    name: "Quiznote",
-    slug: "quiznote",
-    tagline: "Turn notes or PDFs into interactive quizzes with AI.",
-    projectUrl: "https://quiznote.app",
-    repository: "https://github.com/Evavic44/quiznote",
+    name: "ElevateAI",
+    slug: "elevateai",
+    tagline: "Create AI meeting agents: live video, automatic transcripts, summaries, and ongoing chat.",
+    projectUrl: "https://elevateai-five.vercel.app/",
+    repository: "https://github.com/rhittik12/elevateai",
     logo:
-      "https://res.cloudinary.com/victoreke/image/upload/v1692636087/victoreke/projects.png",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778135404/ChatGPT_Image_May_7_2026_11_59_38_AM_kx1ysq.png",
     coverImage: {
       image:
-        "https://res.cloudinary.com/victoreke/image/upload/v1692636087/victoreke/projects.png",
-      alt: "Quiznote project cover",
+        "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778133693/Screenshot_2026-05-07_113108_fyvayv.png",
+      alt: "ElevateAI project cover",
       lqip: tinyBlur,
     },
     description: [
       block(
-        "Quiznote is a web app powered by Google Gemini AI that takes your notes as text input or PDF upload and converts them into interactive quizzes.",
+        "ElevateAI is a full-stack SaaS platform that enables users to create custom AI agents and have real-time video meetings with them. Each meeting is automatically transcribed, recorded, and summarized by AI. After a meeting ends, users can continue chatting with the agent about the meeting content through an integrated chat interface.",
         "proj-1"
       ),
+    ],
+  },
+  {
+    _id: "project-2",
+    name: "Movie Suggestion",
+    slug: "moviesuggestion",
+    tagline: "Get personalized movie recommendations based on your preferences.",
+    projectUrl: "https://moviesuggestion-green.vercel.app/",
+    repository: "https://github.com/rhittik12/moviesuggestion",
+    logo:
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778136590/ChatGPT_Image_May_7_2026_12_19_19_PM_a5k7tv.png",
+    coverImage: {
+      image:
+        "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve,e_sharpen/v1778136956/Screenshot_2026-05-07_122530_mmjaob.png",
+      alt: "Movie Suggestion project cover",
+      lqip: tinyBlur,
+    },
+    description: [
       block(
-        "The project was built during the GDG Lagos hackathon and is open to contributions.",
+        "Movie Suggestion is a web application that provides personalized movie recommendations based on user preferences. It uses a combination of collaborative filtering and content-based filtering to suggest movies that users are likely to enjoy.",
         "proj-2"
+      ),
+    ],
+  },
+  {
+    _id: "project-3",
+    name: "AI Content Generator",
+    slug: "ai-content-generator",
+    tagline: "Generate high-quality blog posts, marketing copy, and social content with configurable AI templates.",
+    projectUrl: "https://ai-content-generator-33ec.vercel.app/",
+    repository: "https://github.com/rhittik12/ai-content-generator",
+    logo:
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve,e_sharpen/v1778138789/ChatGPT_Image_May_7_2026_12_55_36_PM_tiwo0h.png",
+    coverImage: {
+      image:
+        "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve,e_sharpen/v1778138475/Screenshot_2026-05-07_125030_uvejap.png",
+      alt: "AI Content Generator project cover",
+      lqip: tinyBlur,
+    },
+    description: [
+      block(
+        "AI Content Generator is a web app that helps creators and teams produce polished, SEO‑friendly written content quickly. Users provide a topic and choose tone, length, and templates; the app generates blog posts, social captions, and marketing copy with iterative editing, exportable Markdown, and built-in prompt presets to tune results. Built with Next.js and TypeScript, it integrates OpenAI-style models for fast, customizable content workflows",
+        "proj-3"
+      ),
+    ],
+  },
+  {
+    _id: "project-4",
+    name: "Typing Battle Game",
+    slug: "typing-battle-game",
+    tagline: "Challenge your typing speed and accuracy in real-time battles.",
+    projectUrl: "https://typing-battle-game.vercel.app/",
+    repository: "https://github.com/rhittik12/typing-battle-game",
+    logo:
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve/v1778139601/ChatGPT_Image_May_7_2026_01_09_43_PM_chbgag.png",
+    coverImage: {
+      image:
+        "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve/v1778139438/Screenshot_2026-05-07_130328_ktubll.png",
+      alt: "Typing Battle Game project cover",
+      lqip: tinyBlur,
+    },
+    description: [
+      block(
+        "Typing Battle Game is a hacker-style typing game where falling words test your speed, accuracy, and combo streaks",
+        "proj-4"
       ),
     ],
   },

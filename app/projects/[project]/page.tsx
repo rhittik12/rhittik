@@ -15,7 +15,7 @@ type Props = {
 };
 
 const fallbackImage: string =
-  "https://res.cloudinary.com/victoreke/image/upload/v1692636087/victoreke/projects.png";
+  "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve/v1778141099/ChatGPT_Image_May_7_2026_01_34_35_PM_xtmitf.png";
 
 function getProject(slug: string): ProjectType | undefined {
   return projects.find((project) => project.slug === slug);
@@ -34,11 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${project.name} | Project`,
-    metadataBase: new URL(`https://victoreke.com/projects/${project.slug}`),
+    metadataBase: new URL(`https://rittikkumar.com/projects/${project.slug}`),
     description: project.tagline,
     openGraph: {
       images: project.coverImage?.image ?? fallbackImage,
-      url: `https://victoreke.com/projects/${project.slug}`,
+      url: `https://rittikkumar.com/projects/${project.slug}`,
       title: project.name,
       description: project.tagline,
     },

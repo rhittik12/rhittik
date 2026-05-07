@@ -1,5 +1,5 @@
 {
-  "name": "victoreke.com",
+  "name": "rhittikkumar",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@giscus/react": "^2.3.0",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "eslint": "^8.45.0",
