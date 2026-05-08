@@ -27,7 +27,7 @@ export const profile: ProfileType = {
   headline: "Full-Stack developer and Open-source contributor",
   profileImage: {
     image:
-      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778139601/ChatGPT_Image_May_7_2026_01_09_43_PM_chbgag.png",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778221087/ChatGPT_Image_May_8_2026_11_47_15_AM_vnueq0.png",
     lqip: tinyBlur,
     alt: "Portrait of Rhittik Kumar Barman",
   },

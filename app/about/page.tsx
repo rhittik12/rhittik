@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Learn more about my skills, experience and technical background",
     images:
-      "https://res.cloudinary.com/rhittikkumar/image/upload/v1692635746/rhittikkumar/og.png",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778223324/ChatGPT_Image_May_8_2026_12_24_45_PM_ic8xqo.png",
   },
 };
 
@@ -71,13 +71,13 @@ export default async function About() {
                 <div className="flex flex-col text-center gap-y-4">
                   <div className="flex items-center gap-x-3">
                     <RefLink
-                      href=""
+                      href="https://drive.google.com/file/d/18eDmaGd1wgoNNvV0lGOz-22ocfb8_N7e/view?usp=sharing"
                       className="flex items-center justify-center text-center gap-x-2 basis-[90%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-2 text-lg font-incognito font-semibold"
                     >
                       View Résumé <BiLinkExternal className="text-base" />
                     </RefLink>
                     <a
-                      href={`${profile?.resumeURL}?dl=${profile?.fullName}-resume.pdf`}
+                      href="https://drive.google.com/uc?export=download&id=18eDmaGd1wgoNNvV0lGOz-22ocfb8_N7e"
                       className="flex items-center justify-center text-center dark:text-primary-color text-secondary-color hover:underline basis-[10%] dark:bg-primary-bg bg-zinc-100 border border-transparent dark:hover:border-zinc-700 hover:border-zinc-200 rounded-md py-3 text-lg"
                       title="Download Resume"
                     >
