@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: "https://rhittik.vercel.app/projects",
     description: "Explore projects built by Rhittik Kumar Barman",
     images:
-      "https://res.cloudinary.com/rhittikkumar/image/upload/v1692636087/rhittikkumar/projects.png",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778228672/rhittik_jxo7h8.png",
   },
 };
 
