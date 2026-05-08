@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Learn more about my skills, experience and technical background",
     images:
-      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778223324/ChatGPT_Image_May_8_2026_12_24_45_PM_ic8xqo.png",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778228672/rhittik_jxo7h8.png",
   },
 };
 
