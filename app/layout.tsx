@@ -20,7 +20,7 @@ const options = {
     "Rhittik Kumar Barman is a Software Developer who is passionate about building solutions and contributing to open source communities",
   url: "https://rhittik.vercel.app",
   ogImage:
-    "https://res.cloudinary.com/rhittikkumar/image/upload/v1692635746/rhittikkumar/og.png",
+    "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778228672/rhittik_jxo7h8.png",
 };
 
 export const metadata: Metadata = {
