@@ -24,7 +24,7 @@ export default async function Project() {
     <main className="max-w-7xl mx-auto md:px-16 px-6">
       <PageHeading
         title="Projects"
-        description="I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved."
+        description="I've worked on tons of little projects over the years but these are the ones that I'm most proud of. I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Each project represents a step in my journey as a developer, where I explored new ideas, technologies, and creative problem-solving."
       />
 
       <Slide delay={0.1}>

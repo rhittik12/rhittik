@@ -219,6 +219,11 @@ export const usageSections: UsageSection[] = [
       { name: "TypeScript", detail: "Typed Superset of JavaScript" },
       { name: "Sass", detail: "CSS Preprocessor" },
       { name: "Python", detail: "Programming Language" },
+      { name: "Django", detail: "Python Web Framework" },
+      { name: "Node.js", detail: "JavaScript Runtime" },
+      { name: "Express.js", detail: "Node.js Web Framework" },
+      { name: "MongoDB", detail: "NoSQL Database" },
+      { name: "PostgreSQL", detail: "Relational Database" },
     ],
   },
   {
@@ -231,6 +236,7 @@ export const usageSections: UsageSection[] = [
       { name: "Hoppscotch", detail: "API Testing/Development" },
       { name: "Figma", detail: "Design Tool" },
       { name: "Notion", detail: "Note taking and organization" },
+      { name: "Cursor", detail: "AI-powered code editor" },
     ],
   },
   {
