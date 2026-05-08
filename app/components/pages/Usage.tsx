@@ -17,10 +17,16 @@ export default async function Usage() {
             <ul className="space-y-2 dark:text-zinc-400 text-zinc-600">
               {section.items.map((item) => (
                 <li key={item.name}>
-                  <strong className="dark:text-zinc-200 text-zinc-800">
-                    {item.name}
-                  </strong>{" "}
-                  - {item.detail}
+                  <div className="flex items-center">
+                    <span className="inline-flex items-center mr-3 text-zinc-700 dark:text-zinc-300">
+                      {item.icon}
+                    </span>
+                    <div>
+                      <strong className="dark:text-zinc-200 text-zinc-800">
+                        {item.name}
+                      </strong>{" "}- {item.detail}
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>

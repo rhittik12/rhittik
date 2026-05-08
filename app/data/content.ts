@@ -1,5 +1,33 @@
 import type { HeroeType, JobType, ProfileType, ProjectType } from "@/types";
 import type { PortableTextBlock } from "@/types";
+import * as React from "react";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiRedux,
+  SiTailwindcss,
+  SiTypescript,
+  SiSass,
+  SiPython,
+  SiDjango,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiVisualstudiocode,
+  SiPycharm,
+  SiIntellijidea,
+  SiPostman,
+  SiFigma,
+  SiNotion,
+  SiGithub,
+  SiGitlab,
+  SiVercel,
+  SiNetlify,
+  SiSpotify,
+  SiSteam,
+} from "react-icons/si";
+import { FiLayers, FiCode, FiCpu } from "react-icons/fi";
 
 const tinyBlur =
   "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
@@ -200,6 +228,7 @@ export const projects: ProjectType[] = [
 export type UsageItem = {
   name: string;
   detail: string;
+  icon?: React.ReactNode;
 };
 
 export type UsageSection = {
@@ -211,43 +240,232 @@ export const usageSections: UsageSection[] = [
   {
     title: "Technologies",
     items: [
-      { name: "React", detail: "UI Library" },
-      { name: "Next.js", detail: "React Framework" },
-      { name: "Redux", detail: "Production-grade State Management" },
-      { name: "Zustand", detail: "State Management (personal projects)" },
-      { name: "Tailwind CSS", detail: "Styling Library" },
-      { name: "TypeScript", detail: "Typed Superset of JavaScript" },
-      { name: "Sass", detail: "CSS Preprocessor" },
-      { name: "Python", detail: "Programming Language" },
-      { name: "Django", detail: "Python Web Framework" },
-      { name: "Node.js", detail: "JavaScript Runtime" },
-      { name: "Express.js", detail: "Node.js Web Framework" },
-      { name: "MongoDB", detail: "NoSQL Database" },
-      { name: "PostgreSQL", detail: "Relational Database" },
+      {
+        name: "React",
+        detail: "UI Library",
+        icon: React.createElement(SiReact, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Next.js",
+        detail: "React Framework",
+        icon: React.createElement(SiNextdotjs, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Redux",
+        detail: "Production-grade State Management",
+        icon: React.createElement(SiRedux, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Zustand",
+        detail: "State Management (personal projects)",
+        icon: React.createElement(FiLayers, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Tailwind CSS",
+        detail: "Styling Library",
+        icon: React.createElement(SiTailwindcss, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "TypeScript",
+        detail: "Typed Superset of JavaScript",
+        icon: React.createElement(SiTypescript, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Sass",
+        detail: "CSS Preprocessor",
+        icon: React.createElement(SiSass, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Python",
+        detail: "Programming Language",
+        icon: React.createElement(SiPython, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Django",
+        detail: "Python Web Framework",
+        icon: React.createElement(SiDjango, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Node.js",
+        detail: "JavaScript Runtime",
+        icon: React.createElement(SiNodedotjs, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Express.js",
+        detail: "Node.js Web Framework",
+        icon: React.createElement(SiExpress, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "MongoDB",
+        detail: "NoSQL Database",
+        icon: React.createElement(SiMongodb, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "PostgreSQL",
+        detail: "Relational Database",
+        icon: React.createElement(SiPostgresql, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
     ],
   },
   {
     title: "Tools",
     items: [
-      { name: "Visual Studio Code", detail: "Text Editor" },
-      { name: "PyCharm", detail: "Python IDE" },
-      { name: "IntelliJ IDEA", detail: "Java IDE" },
-      { name: "Postman", detail: "API Testing" },
-      { name: "Hoppscotch", detail: "API Testing/Development" },
-      { name: "Figma", detail: "Design Tool" },
-      { name: "Notion", detail: "Note taking and organization" },
-      { name: "Cursor", detail: "AI-powered code editor" },
+      {
+        name: "Visual Studio Code",
+        detail: "Text Editor",
+        icon: React.createElement(SiVisualstudiocode, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "PyCharm",
+        detail: "Python IDE",
+        icon: React.createElement(SiPycharm, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "IntelliJ IDEA",
+        detail: "Java IDE",
+        icon: React.createElement(SiIntellijidea, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Postman",
+        detail: "API Testing",
+        icon: React.createElement(SiPostman, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Hoppscotch",
+        detail: "API Testing/Development",
+        icon: React.createElement(FiCode, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Figma",
+        detail: "Design Tool",
+        icon: React.createElement(SiFigma, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Notion",
+        detail: "Note taking and organization",
+        icon: React.createElement(SiNotion, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Cursor",
+        detail: "AI-powered code editor",
+        icon: React.createElement(FiCpu, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
     ],
   },
   {
     title: "Platform",
     items: [
-      { name: "GitHub", detail: "Version control/hosting service" },
-      { name: "GitLab", detail: "Version control/hosting service" },
-      { name: "Vercel", detail: "Hosting and database" },
-      { name: "Netlify", detail: "Static Jamstack hosting" },
-      { name: "Spotify", detail: "Music streaming" },
-      { name: "Steam", detail: "Gaming" },
+      {
+        name: "GitHub",
+        detail: "Version control/hosting service",
+        icon: React.createElement(SiGithub, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "GitLab",
+        detail: "Version control/hosting service",
+        icon: React.createElement(SiGitlab, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Vercel",
+        detail: "Hosting and database",
+        icon: React.createElement(SiVercel, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Netlify",
+        detail: "Static Jamstack hosting",
+        icon: React.createElement(SiNetlify, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Spotify",
+        detail: "Music streaming",
+        icon: React.createElement(SiSpotify, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+      {
+        name: "Steam",
+        detail: "Gaming",
+        icon: React.createElement(SiSteam, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
     ],
   },
 ];
