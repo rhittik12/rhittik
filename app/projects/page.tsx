@@ -7,7 +7,7 @@ import PageHeading from "../components/shared/PageHeading";
 import { projects } from "@/app/data/content";
 
 export const metadata: Metadata = {
-  title: "Project | Rhittik Kumar Barman",
+  title: "Projects | Rhittik Kumar Barman",
   metadataBase: new URL("https://rhittik.vercel.app/projects"),
   description: "Explore projects built by Rhittik Kumar Barman",
   openGraph: {
@@ -15,7 +15,15 @@ export const metadata: Metadata = {
     url: "https://rhittik.vercel.app/projects",
     description: "Explore projects built by Rhittik Kumar Barman",
     images:
-      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778228672/rhittik_jxo7h8.png",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1779518233/optimized_image_cdlnk7.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects | Rhittik Kumar Barman",
+    description: "Explore projects built by Rhittik Kumar Barman",
+    images: [
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1779518233/optimized_image_cdlnk7.jpg",
+    ],
   },
 };
 
