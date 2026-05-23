@@ -20,7 +20,16 @@ export const metadata: Metadata = {
     description:
       "Learn more about my skills, experience and technical background",
     images:
-      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1778228672/rhittik_jxo7h8.png",
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1779518233/optimized_image_cdlnk7.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Rhittik Kumar Barman",
+    description:
+      "Learn more about my skills, experience and technical background",
+    images: [
+      "https://res.cloudinary.com/ds8wsxe7d/image/upload/v1779518233/optimized_image_cdlnk7.jpg",
+    ],
   },
 };
 
