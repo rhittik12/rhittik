@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-<h1>rittikbarman.com</h1>
+<h1>rhittik.vercel.app</h1>
 <p>My personal portfolio website</p>
 <img width="3806" height="1744" alt="high_quality_portfolio_2" src="https://github.com/user-attachments/assets/4633c3df-0936-4f94-b83d-09784ad8301c" />
 </div>
