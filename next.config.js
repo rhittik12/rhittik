@@ -3,6 +3,7 @@ const nextConfig = {};
 
 module.exports = {
   images: {
+    unoptimized: true,
     remotePatterns: [
       { hostname: "icons.duckduckgo.com" },
       { hostname: "res.cloudinary.com" },
