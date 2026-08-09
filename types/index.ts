@@ -51,6 +51,35 @@ export type JobType = {
   endDate: string;
 };
 
+export type ProjectDetailItem = {
+  title: string;
+  body: string;
+};
+
+export type ProjectFeature = {
+  title: string;
+  description: string;
+  problem: string;
+  engineering: string;
+};
+
+export type ProjectCaseStudy = {
+  type: string;
+  timeline: string;
+  hero: string;
+  overview: string[];
+  techStack: ProjectDetailItem[];
+  dataFlow: string[];
+  features: ProjectFeature[];
+  performance: ProjectDetailItem[];
+  developmentProcess: string[];
+  challenges: ProjectDetailItem[];
+  deployment: ProjectDetailItem[];
+  futureImprovements: ProjectDetailItem[];
+  lessonsLearned: ProjectDetailItem[];
+  finalThoughts: string;
+};
+
 export type ProjectType = {
   _id: string;
   name: string;
@@ -65,6 +94,7 @@ export type ProjectType = {
     lqip: string;
   };
   description: PortableTextBlock[];
+  caseStudy?: ProjectCaseStudy;
 };
 
 export type HeroeType = {

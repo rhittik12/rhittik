@@ -1,4 +1,10 @@
-import type { HeroeType, JobType, ProfileType, ProjectType } from "@/types";
+import type {
+  HeroeType,
+  JobType,
+  ProfileType,
+  ProjectCaseStudy,
+  ProjectType,
+} from "@/types";
 import type { PortableTextBlock } from "@/types";
 import * as React from "react";
 import {
@@ -47,6 +53,19 @@ function block(text: string, key: string): PortableTextBlock {
       },
     ],
   } as PortableTextBlock;
+}
+
+function detail(title: string, body: string) {
+  return { title, body };
+}
+
+function feature(
+  title: string,
+  description: string,
+  problem: string,
+  engineering: string
+) {
+  return { title, description, problem, engineering };
 }
 
 export const profile: ProfileType = {
@@ -134,6 +153,194 @@ export const heroes: HeroeType[] = [
   },
 ];
 
+const projectCaseStudies: Record<string, ProjectCaseStudy> = {
+  elevateai: {
+    type: "AI SaaS / Meeting Intelligence",
+    timeline: "Built as an end-to-end product sprint, from prototype to deployed SaaS experience.",
+    hero:
+      "ElevateAI was built for people who want the usefulness of a meeting assistant without manually organizing every note afterward. The product lets a user create a domain-specific AI agent, meet with it in a live video session, and leave with transcripts, summaries, recordings, and a chat surface that keeps the meeting useful after the call ends.",
+    overview: [
+      "The motivation was to explore what an AI-native meeting workflow should feel like when the assistant is part of the product from the beginning. Instead of treating transcription, summarization, and follow-up chat as separate tools, ElevateAI connects them into one loop: prepare an agent, run a meeting, capture the conversation, then ask questions against that meeting context.",
+      "The product is aimed at builders, students, creators, and small teams that need structured conversations but do not want heavyweight meeting software. The experience stays direct: choose an agent, start a session, and receive useful artifacts with minimal ceremony.",
+    ],
+    techStack: [
+      detail("Next.js", "Used for the product shell, route-based rendering, API boundaries, and deployment-friendly performance."),
+      detail("TypeScript", "Keeps agent, meeting, transcript, and summary data predictable across screens and server calls."),
+      detail("Tailwind CSS", "Supports fast iteration on dense product UI such as meeting controls, panels, and empty states."),
+      detail("AI APIs", "Transform raw conversation into summaries and contextual follow-up answers."),
+      detail("Vercel", "Provides low-friction hosting, preview deployments, and environment configuration."),
+    ],
+    dataFlow: [
+      "A user creates or selects an AI agent with a clear meeting role.",
+      "The meeting session starts and produces transcript and recording artifacts.",
+      "Transcript content is processed into a structured summary after the meeting.",
+      "The chat interface receives the meeting context and answers follow-up questions from that source material.",
+    ],
+    features: [
+      feature("Custom AI Agents", "Users can create assistants for specific meeting contexts.", "Generic assistants lose context and force users to repeat intent.", "Agent configuration gives the app a stable instruction layer that can be reused across meetings."),
+      feature("Live Video Meetings", "The meeting room keeps the conversation inside the same product that will process the outcome.", "Switching between meeting tools and AI tools creates friction.", "The meeting experience is modeled as a first-class workflow state rather than an external afterthought."),
+      feature("Automatic Transcripts", "Meetings produce text artifacts that can be searched, summarized, and reused.", "Useful decisions are often trapped inside recordings.", "Transcript generation turns real-time conversation into data the system can reason about."),
+      feature("AI Summaries", "After the meeting, the product produces a concise summary of the important points.", "Raw transcripts are too long for quick review.", "Summarization compresses the transcript while preserving decisions and context."),
+      feature("Post-Meeting Chat", "Users can continue asking questions about a completed meeting.", "Meeting knowledge is hard to retrieve later.", "The chat layer uses meeting artifacts as context so answers stay grounded in the session."),
+    ],
+    performance: [
+      detail("Progressive Loading", "Meeting metadata can appear while slower transcript and AI work continues in the background."),
+      detail("Route-Level Splitting", "Next.js keeps setup, meeting, and review screens separated so users do not load every interface at once."),
+      detail("Image Reliability", "Static and remote images are configured to avoid broken production renders."),
+      detail("Loading States", "AI workflows are not instant, so explicit states reduce uncertainty during processing."),
+    ],
+    developmentProcess: [
+      "The project began with the question: what should happen after a meeting ends if the AI assistant actually understands the meeting?",
+      "The first prototype focused on starting a session, capturing useful text, and producing a meaningful summary.",
+      "The UI was then refactored around the journey: agent setup, live session, generated artifacts, and follow-up chat.",
+      "Final polish centered on deployment behavior, image reliability, and making the post-meeting experience feel continuous.",
+    ],
+    challenges: [
+      detail("Coordinating Real-Time and Async Work", "A meeting happens live, while transcript processing and summaries happen after the fact. Each stage needed to be explicit in the product flow."),
+      detail("Keeping AI Output Useful", "Summaries need structure without sounding generic. Focused context and role-specific agents guide generation."),
+      detail("Avoiding UI Overload", "Meeting tools can become crowded quickly, so controls and generated content are separated by stage."),
+    ],
+    deployment: [
+      detail("Vercel Hosting", "Vercel keeps Next.js deployment, previews, and environment configuration straightforward."),
+    ],
+    futureImprovements: [
+      detail("Team Workspaces", "Shared agents and meeting history would support recurring team workflows."),
+      detail("Action Item Extraction", "Turning summaries into structured tasks would reduce the gap between conversation and execution."),
+      detail("Search Across Meetings", "Cross-meeting search would help users retrieve decisions without remembering the exact session."),
+    ],
+    lessonsLearned: [
+      detail("AI Products Need Workflow Design", "The hard part is not only calling a model; it is deciding when AI output appears and how users act on it."),
+      detail("Async UX Matters", "Meeting artifacts arrive at different times, so loading and empty states are part of the product architecture."),
+      detail("Context Is Product Value", "The post-meeting chat becomes useful only when it is grounded in the specific session."),
+    ],
+    finalThoughts:
+      "ElevateAI is a strong example of building around a complete user loop instead of a single AI feature. It turns conversation into durable knowledge and makes the next interaction with that knowledge feel natural.",
+  },
+  moviesuggestion: {
+    type: "Recommendation Web App",
+    timeline: "Built as a focused recommendation product with emphasis on discovery, filtering, and quick feedback.",
+    hero:
+      "Movie Suggestion helps users move from vague viewing intent to a practical watchlist. It is designed for people who know the mood, genre, or style they want but do not want to scroll endlessly through catalogs.",
+    overview: [
+      "The project was built around a familiar frustration: most users do not need every movie, they need a small set of good options that match the moment. Movie Suggestion treats this as a ranking and presentation problem instead of a simple search page.",
+      "The core experience is intentionally lightweight. A user expresses preferences, receives a curated set of recommendations, and can refine from there without facing a wall of filters.",
+    ],
+    techStack: [
+      detail("React", "Powers interactive preference selection, recommendation cards, and fast UI updates."),
+      detail("Next.js", "Structures the app as a production-ready web product with optimized routing."),
+      detail("TypeScript", "Models movie objects, filter inputs, and API responses with fewer runtime surprises."),
+      detail("Tailwind CSS", "Creates responsive movie grids, compact cards, and consistent visual states."),
+      detail("Movie Data APIs", "Provide film metadata, images, ratings, and category signals for recommendations."),
+    ],
+    dataFlow: [
+      "The user selects preferences such as genre, mood, or viewing intent.",
+      "The app translates those preferences into query parameters or ranking criteria.",
+      "Movie data is fetched, filtered, and ordered for relevance.",
+      "The UI renders a short list of choices with enough metadata to support a decision.",
+    ],
+    features: [
+      feature("Personalized Recommendations", "The product returns movies based on user preference rather than only popularity.", "Popular lists are often too generic.", "Preference signals are converted into filters and ranking rules before rendering results."),
+      feature("Movie Cards", "Each recommendation includes visual and textual context.", "Users need enough information to decide quickly.", "Cards balance poster imagery, title, and metadata without making the grid visually noisy."),
+      feature("Preference-Based Filtering", "Users can narrow results around the kind of movie they want.", "Manual search assumes the user already knows the title.", "Filters turn vague intent into structured criteria the app can process."),
+      feature("Responsive Discovery Grid", "Recommendations remain easy to scan on desktop and mobile.", "Movie browsing often happens casually on smaller devices.", "The grid adapts column count and spacing while preserving readable card content."),
+    ],
+    performance: [
+      detail("Image Loading", "Movie posters are visual-heavy assets, so sizing and lazy loading improve perceived speed."),
+      detail("Client-Side Refinement", "Lightweight refinements can happen without forcing full page transitions."),
+      detail("Result Limits", "Showing a focused set improves decision-making and reduces rendering work."),
+      detail("Loading Feedback", "Recommendation requests need visible progress so latency does not feel like failure."),
+    ],
+    developmentProcess: [
+      "The first decision was how much preference input the user should provide before seeing value.",
+      "The prototype focused on fetching reliable metadata and rendering a clean result grid.",
+      "Filtering and ranking were refined so the experience felt closer to guidance than basic search.",
+      "Final polish focused on responsiveness, visual consistency, and a fast exploration loop.",
+    ],
+    challenges: [
+      detail("Working Around Rate Limits", "One of the most frustrating parts of the build was dealing with movie API rate limits while testing recommendation flows. Repeated searches, filter changes, and poster lookups could quickly hit request ceilings, so the app needed a more careful request strategy: avoid unnecessary refetches, reuse already-fetched results where possible, limit how many movies are requested at once, and design the UI so users still get useful feedback when the API slows down or refuses a request."),
+      detail("Handling Incomplete Data", "Movie APIs can return missing posters or metadata, so the UI needs fallbacks."),
+      detail("Recommendation Quality", "Ranking rules need to support user intent, not just raw popularity."),
+    ],
+    deployment: [
+      detail("Vercel", "The app fits Vercel because the frontend and lightweight server routes can ship together."),
+    ],
+    futureImprovements: [
+      detail("User Profiles", "Profiles would let the app learn from previous choices instead of starting over each session."),
+      detail("Streaming Provider Filters", "Availability filters would make recommendations immediately actionable."),
+      detail("Explainable Recommendations", "Showing why a movie was recommended would build trust in the ranking."),
+    ],
+    lessonsLearned: [
+      detail("Discovery Needs Constraints", "A smaller, better-ranked list often beats an endless catalog."),
+      detail("Data Quality Shapes UX", "Fallback states are essential because external movie metadata is not always complete."),
+      detail("Rate Limits Shape Architecture", "I spent a lot of time fighting the movie API rate limits while testing the app. At first I was just fetching again whenever a filter changed, but that quickly became a problem. This taught me to be more careful with repeated requests, reuse results when I already had them, and show better fallback states instead of letting the app feel broken when the API pushed back."),
+      detail("Personalization Is Iterative", "Recommendation logic improves when refinement is easy."),
+    ],
+    finalThoughts:
+      "Movie Suggestion is a compact project with a clear product lesson: good discovery is not about showing more choices, it is about helping the user make a better choice faster.",
+  },
+  "ai-content-generator": {
+    type: "AI Writing Tool",
+    timeline: "Built as a practical AI workflow product focused on prompt structure, editing, and export.",
+    hero:
+      "AI Content Generator helps creators turn a rough topic into usable written drafts without starting from a blank page. It is built for people who need blog posts, captions, and marketing copy quickly, while still controlling tone, length, and format.",
+    overview: [
+      "The project solves the gap between a generic chatbot and a focused content workflow. A blank prompt box is flexible, but it puts too much prompt-engineering burden on the user. This app packages repeatable writing patterns into templates.",
+      "The product experience centers on a controlled generation loop: select a template, provide intent, generate a draft, refine it, then export the result.",
+    ],
+    techStack: [
+      detail("Next.js", "Combines product UI, server-side AI calls, and deployment in one framework."),
+      detail("TypeScript", "Types template configuration, form state, and generated content responses."),
+      detail("Tailwind CSS", "Creates a clean writing interface with compact controls and responsive panels."),
+      detail("AI Model API", "Acts as the generation engine while the app provides structure around prompts and output format."),
+      detail("Markdown Export", "Keeps generated writing portable to blogs, docs, and publishing tools."),
+    ],
+    dataFlow: [
+      "The user selects a content template and fills in topic, tone, and length.",
+      "The app validates inputs and converts them into a structured prompt.",
+      "The server calls the AI provider and receives generated content.",
+      "The UI displays the draft for editing and export.",
+    ],
+    features: [
+      feature("Template-Based Generation", "Users start from structured patterns such as blog posts, captions, or marketing copy.", "Generic prompts produce inconsistent output.", "Templates act as reusable prompt contracts that improve consistency."),
+      feature("Tone and Length Controls", "Users shape the draft before generation.", "One-size-fits-all output usually needs heavy rewriting.", "Control inputs are mapped into prompt instructions so the model receives explicit constraints."),
+      feature("Iterative Editing", "Generated content can be refined instead of treated as final.", "AI drafts are useful starting points, not always publish-ready text.", "The UI supports a human-in-the-loop workflow where editing remains central."),
+      feature("Markdown Export", "Users can move generated content into other writing tools.", "Content loses value if it is trapped in the generator.", "Markdown keeps output portable and friendly to developer and creator workflows."),
+    ],
+    performance: [
+      detail("Async Generation States", "AI calls have variable latency, so the UI communicates progress and prevents duplicate submissions."),
+      detail("Prompt Size Control", "Templates keep requests focused, reducing unnecessary token usage."),
+      detail("Component Isolation", "Inputs, output preview, and export controls can update independently."),
+      detail("Production Builds", "Next.js build checks catch client/server boundary issues before deployment."),
+    ],
+    developmentProcess: [
+      "The idea started from noticing that content generation becomes more useful when the user is guided through structure.",
+      "The first prototype validated the core prompt flow: topic in, structured output out.",
+      "The next iteration added tone, length, and template choices so outputs could reflect different use cases.",
+      "The product was polished around editing, export, and making AI wait time feel intentional.",
+    ],
+    challenges: [
+      detail("Prompt Consistency", "Small prompt changes can create large output differences. Templates reduce that variance."),
+      detail("User Control", "Too much automation can make writing feel detached. The editor keeps the user in charge."),
+      detail("Latency", "Generation delay is unavoidable, so the product needs clear feedback and duplicate-request protection."),
+    ],
+    deployment: [
+      detail("Vercel Hosting", "The project benefits from quick preview deployments and simple environment variable management."),
+    ],
+    futureImprovements: [
+      detail("Saved Drafts", "Persistent drafts would make the app more useful for ongoing content planning."),
+      detail("Brand Voice Profiles", "Reusable voice settings would help teams produce more consistent writing."),
+      detail("Version History", "Comparing generations would make refinement easier."),
+    ],
+    lessonsLearned: [
+      detail("Structure Beats Blank Prompts", "AI feels more useful when the product guides the task."),
+      detail("Editing Is Part of Generation", "The best workflow keeps humans in the loop after the first draft."),
+      detail("Latency Needs Design", "Waiting for AI is part of the experience, so the UI must handle it deliberately."),
+    ],
+    finalThoughts:
+      "AI Content Generator turns prompt engineering into a product workflow. It shows how AI tools become practical when they combine generation with constraints, editing, and export.",
+  },
+};
+
 export const projects: ProjectType[] = [
   {
     _id: "project-1",
@@ -156,6 +363,7 @@ export const projects: ProjectType[] = [
         "proj-1"
       ),
     ],
+    caseStudy: projectCaseStudies.elevateai,
   },
   {
     _id: "project-2",
@@ -178,6 +386,7 @@ export const projects: ProjectType[] = [
         "proj-2"
       ),
     ],
+    caseStudy: projectCaseStudies.moviesuggestion,
   },
   {
     _id: "project-3",
@@ -200,28 +409,7 @@ export const projects: ProjectType[] = [
         "proj-3"
       ),
     ],
-  },
-  {
-    _id: "project-4",
-    name: "Typing Battle Game",
-    slug: "typing-battle-game",
-    tagline: "Challenge your typing speed and accuracy in real-time battles.",
-    projectUrl: "https://typing-battle-game.vercel.app/",
-    repository: "https://github.com/rhittik12/typing-battle-game",
-    logo:
-      "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve/v1778139601/ChatGPT_Image_May_7_2026_01_09_43_PM_chbgag.png",
-    coverImage: {
-      image:
-        "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve/v1778139438/Screenshot_2026-05-07_130328_ktubll.png",
-      alt: "Typing Battle Game project cover",
-      lqip: tinyBlur,
-    },
-    description: [
-      block(
-        "Typing Battle Game is a hacker-style typing game where falling words test your speed, accuracy, and combo streaks",
-        "proj-4"
-      ),
-    ],
+    caseStudy: projectCaseStudies["ai-content-generator"],
   },
 ];
 

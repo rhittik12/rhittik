@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import type { ProjectType } from "@/types";
+import type { ReactNode } from "react";
+import type { ProjectDetailItem, ProjectFeature, ProjectType } from "@/types";
 import { PortableText } from "@portabletext/react";
 import { CustomPortableText } from "@/app/components/shared/CustomPortableText";
 import { Slide } from "../../animation/Slide";
@@ -19,6 +20,116 @@ const fallbackImage: string =
 
 function getProject(slug: string): ProjectType | undefined {
   return projects.find((project) => project.slug === slug);
+}
+
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="border-t dark:border-zinc-800 border-zinc-200 py-10">
+      <h2 className="font-incognito font-bold tracking-tight dark:text-zinc-100 text-zinc-800 sm:text-3xl text-2xl mb-5">
+        {title}
+      </h2>
+      {children}
+    </section>
+  );
+}
+
+function DetailGrid({ items }: { items: ProjectDetailItem[] }) {
+  return (
+    <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+      {items.map((item) => (
+        <article
+          key={item.title}
+          className="rounded-md border dark:border-zinc-800 border-zinc-200 dark:bg-primary-bg bg-zinc-50 p-5"
+        >
+          <h3 className="font-incognito font-semibold dark:text-zinc-100 text-zinc-800 text-xl mb-2">
+            {item.title}
+          </h3>
+          <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+            {item.body}
+          </p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function FeatureCard({ feature }: { feature: ProjectFeature }) {
+  return (
+    <article className="rounded-md border dark:border-zinc-800 border-zinc-200 dark:bg-primary-bg bg-zinc-50 p-5">
+      <div className="flex flex-col gap-4">
+        <div>
+          <h3 className="font-incognito font-semibold dark:text-zinc-100 text-zinc-800 text-xl mb-2">
+            {feature.title}
+          </h3>
+          <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+            {feature.description}
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-2">
+              Problem Solved
+            </p>
+            <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+              {feature.problem}
+            </p>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-2">
+              Engineering
+            </p>
+            <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+              {feature.engineering}
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function OrderedStory({ items }: { items: string[] }) {
+  return (
+    <ol className="space-y-4">
+      {items.map((item, index) => (
+        <li key={item} className="flex gap-4">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border dark:border-zinc-800 border-zinc-200 dark:text-zinc-300 text-zinc-700">
+            {index + 1}
+          </span>
+          <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed pt-1">
+            {item}
+          </p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function DataFlow({ items }: { items: string[] }) {
+  return (
+    <div className="grid gap-3">
+      {items.map((item, index) => (
+        <div
+          key={item}
+          className="flex items-start gap-3 rounded-md border dark:border-zinc-800 border-zinc-200 dark:bg-primary-bg bg-zinc-50 p-4"
+        >
+          <span className="font-incognito dark:text-zinc-500 text-zinc-500">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+            {item}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 // Dynamic metadata for SEO
@@ -53,15 +164,23 @@ export default async function Project({ params }: Props) {
   }
 
   return (
-    <main className="max-w-6xl mx-auto lg:px-16 px-8">
+    <main className="max-w-6xl mx-auto lg:px-16 px-6">
       <Slide>
-        <div className="max-w-3xl mx-auto">
-          <div className="flex items-start justify-between flex-wrap mb-4">
-            <h1 className="font-incognito font-black tracking-tight sm:text-5xl text-3xl mb-4 max-w-md">
-              {project.name}
-            </h1>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-start justify-between gap-5 flex-wrap mb-6">
+            <div className="max-w-2xl">
+              <p className="text-sm uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-3">
+                {project.caseStudy?.type ?? "Project Case Study"}
+              </p>
+              <h1 className="font-incognito font-black tracking-tight sm:text-5xl text-3xl mb-4">
+                {project.name}
+              </h1>
+              <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed text-lg">
+                {project.caseStudy?.hero ?? project.tagline}
+              </p>
+            </div>
 
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-2">
               <a
                 href={project.projectUrl}
                 rel="noreferrer noopener"
@@ -92,9 +211,36 @@ export default async function Project({ params }: Props) {
             </div>
           </div>
 
-          <div className="relative w-full h-40 pt-[52.5%]">
+          <div className="grid sm:grid-cols-3 grid-cols-1 gap-3 mb-8">
+            <div className="rounded-md border dark:border-zinc-800 border-zinc-200 p-4">
+              <p className="text-xs uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-1">
+                Type
+              </p>
+              <p className="dark:text-zinc-300 text-zinc-700">
+                {project.caseStudy?.type ?? "Web App"}
+              </p>
+            </div>
+            <div className="rounded-md border dark:border-zinc-800 border-zinc-200 p-4">
+              <p className="text-xs uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-1">
+                Timeline
+              </p>
+              <p className="dark:text-zinc-300 text-zinc-700">
+                {project.caseStudy?.timeline ?? "Independent build"}
+              </p>
+            </div>
+            <div className="rounded-md border dark:border-zinc-800 border-zinc-200 p-4">
+              <p className="text-xs uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-1">
+                Focus
+              </p>
+              <p className="dark:text-zinc-300 text-zinc-700">
+                Product engineering
+              </p>
+            </div>
+          </div>
+
+          <figure className="relative w-full h-40 pt-[52.5%] mb-10">
             <Image
-              className="rounded-xl border dark:border-zinc-800 border-zinc-100 object-cover"
+              className="rounded-lg border dark:border-zinc-800 border-zinc-100 object-cover"
               fill
               src={project.coverImage?.image ?? fallbackImage}
               alt={project.coverImage?.alt ?? project.name}
@@ -102,14 +248,77 @@ export default async function Project({ params }: Props) {
               placeholder={project.coverImage?.lqip ? `blur` : "empty"}
               blurDataURL={project.coverImage?.lqip || ""}
             />
-          </div>
+          </figure>
 
-          <div className="mt-8 dark:text-zinc-400 text-zinc-600 leading-relaxed">
-            <PortableText
-              value={project.description}
-              components={CustomPortableText}
-            />
-          </div>
+          {project.caseStudy ? (
+            <>
+              <Section title="Overview">
+                <div className="space-y-5">
+                  {project.caseStudy.overview.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="dark:text-zinc-400 text-zinc-600 leading-relaxed"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </Section>
+
+              <Section title="Technical Details">
+                <DetailGrid items={project.caseStudy.techStack} />
+              </Section>
+
+              <Section title="Data Flow">
+                <DataFlow items={project.caseStudy.dataFlow} />
+              </Section>
+
+              <Section title="Features & Functionality">
+                <div className="grid gap-4">
+                  {project.caseStudy.features.map((feature) => (
+                    <FeatureCard key={feature.title} feature={feature} />
+                  ))}
+                </div>
+              </Section>
+
+              <Section title="Performance Optimizations">
+                <DetailGrid items={project.caseStudy.performance} />
+              </Section>
+
+              <Section title="Development Process">
+                <OrderedStory items={project.caseStudy.developmentProcess} />
+              </Section>
+
+              <Section title="Challenges">
+                <DetailGrid items={project.caseStudy.challenges} />
+              </Section>
+
+              <Section title="Deployment">
+                <DetailGrid items={project.caseStudy.deployment} />
+              </Section>
+
+              <Section title="Future Improvements">
+                <DetailGrid items={project.caseStudy.futureImprovements} />
+              </Section>
+
+              <Section title="Lessons Learned">
+                <DetailGrid items={project.caseStudy.lessonsLearned} />
+              </Section>
+
+              <Section title="Final Thoughts">
+                <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+                  {project.caseStudy.finalThoughts}
+                </p>
+              </Section>
+            </>
+          ) : (
+            <div className="mt-8 dark:text-zinc-400 text-zinc-600 leading-relaxed">
+              <PortableText
+                value={project.description}
+                components={CustomPortableText}
+              />
+            </div>
+          )}
         </div>
       </Slide>
     </main>
