@@ -269,6 +269,10 @@ export default async function Project({ params }: Props) {
                 <DetailGrid items={project.caseStudy.techStack} />
               </Section>
 
+              <Section title="Data Flow">
+                <DataFlow items={project.caseStudy.dataFlow} />
+              </Section>
+
               <Section title="Features & Functionality">
                 <div className="grid gap-4">
                   {project.caseStudy.features.map((feature) => (
