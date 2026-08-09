@@ -59,39 +59,45 @@ function DetailGrid({ items }: { items: ProjectDetailItem[] }) {
   );
 }
 
-function FeatureCard({ feature }: { feature: ProjectFeature }) {
+function SquareBulletDetailList({ items }: { items: ProjectDetailItem[] }) {
   return (
-    <article className="rounded-md border dark:border-zinc-800 border-zinc-200 dark:bg-primary-bg bg-zinc-50 p-5">
-      <div className="flex flex-col gap-4">
-        <div>
-          <h3 className="font-incognito font-semibold dark:text-zinc-100 text-zinc-800 text-xl mb-2">
-            {feature.title}
-          </h3>
-          <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
-            {feature.description}
-          </p>
-        </div>
+    <ul className="space-y-4">
+      {items.map((item) => (
+        <li
+          key={item.title}
+          className="dark:text-zinc-400 text-zinc-600 leading-relaxed"
+        >
+          <span aria-hidden="true" className="dark:text-zinc-300 text-zinc-700">
+            ▪
+          </span>{" "}
+          <strong className="dark:text-zinc-200 text-zinc-800">
+            {item.title}
+          </strong>
+          : {item.body}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
-        <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-2">
-              Problem Solved
-            </p>
-            <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
-              {feature.problem}
-            </p>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-widest dark:text-zinc-500 text-zinc-500 mb-2">
-              Engineering
-            </p>
-            <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
-              {feature.engineering}
-            </p>
-          </div>
-        </div>
-      </div>
-    </article>
+function FeatureList({ items }: { items: ProjectFeature[] }) {
+  return (
+    <ul className="space-y-4">
+      {items.map((feature) => (
+        <li
+          key={feature.title}
+          className="dark:text-zinc-400 text-zinc-600 leading-relaxed"
+        >
+          <span aria-hidden="true" className="dark:text-zinc-300 text-zinc-700">
+            ▪
+          </span>{" "}
+          <strong className="dark:text-zinc-200 text-zinc-800">
+            {feature.title}
+          </strong>
+          : {feature.description}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -266,7 +272,11 @@ export default async function Project({ params }: Props) {
               </Section>
 
               <Section title="Technical Details">
-                <DetailGrid items={project.caseStudy.techStack} />
+                <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed mb-5">
+                  The application is built using modern web technologies with
+                  an emphasis on performance, scalability, and maintainability.
+                </p>
+                <SquareBulletDetailList items={project.caseStudy.techStack} />
               </Section>
 
               <Section title="Data Flow">
@@ -274,11 +284,7 @@ export default async function Project({ params }: Props) {
               </Section>
 
               <Section title="Features & Functionality">
-                <div className="grid gap-4">
-                  {project.caseStudy.features.map((feature) => (
-                    <FeatureCard key={feature.title} feature={feature} />
-                  ))}
-                </div>
+                <FeatureList items={project.caseStudy.features} />
               </Section>
 
               <Section title="Performance Optimizations">
@@ -294,7 +300,7 @@ export default async function Project({ params }: Props) {
               </Section>
 
               <Section title="Deployment">
-                <DetailGrid items={project.caseStudy.deployment} />
+                <SquareBulletDetailList items={project.caseStudy.deployment} />
               </Section>
 
               <Section title="Future Improvements">
@@ -302,7 +308,9 @@ export default async function Project({ params }: Props) {
               </Section>
 
               <Section title="Lessons Learned">
-                <DetailGrid items={project.caseStudy.lessonsLearned} />
+                <SquareBulletDetailList
+                  items={project.caseStudy.lessonsLearned}
+                />
               </Section>
 
               <Section title="Final Thoughts">
