@@ -32,6 +32,7 @@ import {
   SiNetlify,
   SiSpotify,
   SiSteam,
+  SiNestjs,
 } from "react-icons/si";
 import { FiLayers, FiCode, FiCpu } from "react-icons/fi";
 
@@ -510,12 +511,21 @@ export const usageSections: UsageSection[] = [
       },
       {
         name: "Express.js",
-        detail: "Node.js Web Framework",
+        detail: "Backend Framework",
         icon: React.createElement(SiExpress, {
           size: 20,
           className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
         }),
       },
+      {
+        name: "NestJS",
+        detail: "Backend Framework",
+        icon: React.createElement(SiNestjs, {
+          size: 20,
+          className: "inline-block mr-2 text-zinc-700 dark:text-zinc-300",
+        }),
+      },
+
       {
         name: "MongoDB",
         detail: "NoSQL Database",
