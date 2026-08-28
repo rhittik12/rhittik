@@ -340,6 +340,68 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     finalThoughts:
       "AI Content Generator turns prompt engineering into a product workflow. It shows how AI tools become practical when they combine generation with constraints, editing, and export.",
   },
+  "dev-spin": {
+    type: "Developer Productivity Tool",
+    timeline: "Independent project",
+    hero:
+      "A random tech topic generator for developers who want an idea for their next blog post.",
+    overview: [
+      "DevSpin gives you a random tech topic, challenges you to think about what you know, and encourages you to write about it. It is a simple way to build a daily habit of learning and blogging.",
+      "Topics cover frontend, backend, databases, infrastructure, testing, AI, and systems design. There is no login, history, or tracking—just a topic when you need one.",
+    ],
+    techStack: [
+      detail("Next.js", "App Router and Server Actions."),
+      detail("PostgreSQL", "Stores the topic bank via Neon."),
+      detail("Drizzle", "Defines the schema and handles database queries."),
+      detail("Tailwind CSS", "Styles the interface."),
+      detail("TypeScript", "Used across the project."),
+    ],
+    dataFlow: [
+      "Topics are stored in PostgreSQL.",
+      "The user clicks Spin.",
+      "A Server Action picks a random topic from the database.",
+      "The topic card displays the topic and its category.",
+    ],
+    features: [
+      feature("Random Topic Generator", "Gets one random topic from the full topic bank.", "Choosing a topic can slow down the writing habit.", "The random query keeps the interaction quick and unpredictable."),
+      feature("Curated Topic Bank", "Combines technologies and concepts from matching domains.", "Random combinations can produce topics that do not make sense.", "Domain tags keep generated topics relevant."),
+      feature("Standalone Topics", "Includes systems-design topics such as CAP Theorem and OAuth 2.0.", "Some useful topics do not need a technology-and-concept pairing.", "These topics are added directly to the same bank."),
+      feature("No Account Needed", "Works without login or saved history.", "A small daily tool should be easy to open and use.", "The experience stays focused on getting a topic immediately."),
+    ],
+    performance: [
+      detail("Single Query", "Each spin only needs one random topic from the database."),
+      detail("Server Actions", "Topic selection happens on the server without a separate API route."),
+      detail("Small Interface", "The page only renders the current topic and the spin action."),
+      detail("No Extra Services", "There are no accounts, analytics, or feeds to load."),
+    ],
+    developmentProcess: [
+      "Started with a simple question: what should I write about today?",
+      "Created a topic bank from technologies, concepts, and standalone systems-design ideas.",
+      "Added domain tags so technologies and concepts are only paired when they fit together.",
+      "Connected the topic bank to a simple spin action and kept the interface minimal.",
+    ],
+    challenges: [
+      detail("Useful Randomness", "The topic needs to be surprising without being irrelevant."),
+      detail("Matching Domains", "Technologies and concepts are paired only when their domain tags match."),
+      detail("Keeping It Simple", "The app avoids accounts and extra screens so a topic is always one click away."),
+    ],
+    deployment: [
+      detail("Vercel", "The live app is deployed on Vercel."),
+      detail("Neon", "PostgreSQL is hosted through Neon."),
+    ],
+    futureImprovements: [
+      detail("More Topics", "Keep growing the curated topic bank."),
+      detail("Topic Filters", "Let users focus on a category when they want to."),
+      detail("Shareable Topics", "Make it easy to share a good prompt with another developer."),
+    ],
+    lessonsLearned: [
+      detail("Good Data Matters", "The quality of the topic bank shapes the usefulness of every spin."),
+      detail("Constraints Help", "Matching domains prevents random combinations from becoming meaningless."),
+      detail("Small Tools Can Be Useful", "A focused app can help build a habit without needing many features."),
+    ],
+    finalThoughts:
+      "DevSpin is a small tool for getting unstuck. Spin a topic, learn something, and write about it.",
+  },
 };
 
 export const projects: ProjectType[] = [
@@ -411,6 +473,27 @@ export const projects: ProjectType[] = [
       ),
     ],
     caseStudy: projectCaseStudies["ai-content-generator"],
+  },
+  {
+    _id: "project-4",
+    name: "Dev×Spin",
+    slug: "dev-spin",
+    tagline: "Get a random tech topic for your next blog post.",
+    projectUrl: "https://dev-spin.vercel.app/",
+    repository: "https://github.com/rhittik12/DevSpin",
+    logo: "/dev-spin-logo.svg",
+    coverImage: {
+      image: "/dev-spin-cover.svg",
+      alt: "Dev×Spin topic generator interface",
+      lqip: tinyBlur,
+    },
+    description: [
+      block(
+        "DevSpin is a random tech topic generator for a daily blog-writing habit. It picks from a curated Postgres topic bank—no login, history, or tracking.",
+        "proj-4"
+      ),
+    ],
+    caseStudy: projectCaseStudies["dev-spin"],
   },
 ];
 

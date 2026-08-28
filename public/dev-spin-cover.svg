@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Dev Spin project cover</title>
+  <desc id="desc">A dark interface displaying a randomly generated developer writing topic.</desc>
+  <rect width="1200" height="630" fill="#111110"/>
+  <rect x="76" y="58" width="1048" height="514" rx="24" fill="#191918" stroke="#3d3a35" stroke-width="2"/>
+  <text x="140" y="140" fill="#f3efe7" font-family="monospace" font-size="34">Dev<tspan fill="#c97852">×</tspan>Spin</text>
+  <text x="930" y="140" fill="#a8a29e" font-family="monospace" font-size="24">Today</text>
+  <text x="140" y="225" fill="#a8a29e" font-family="monospace" font-size="24">A random tech topic for your next post</text>
+  <rect x="140" y="270" width="920" height="178" rx="20" fill="#24231f" stroke="#49443d" stroke-width="2"/>
+  <rect x="182" y="315" width="134" height="38" rx="19" fill="#25231f" stroke="#625c52" stroke-width="2"/>
+  <text x="204" y="341" fill="#bdb7ad" font-family="monospace" font-size="18">daily prompt</text>
+  <text x="182" y="408" fill="#f3efe7" font-family="monospace" font-size="35">Need something to write about?</text>
+  <rect x="140" y="486" width="280" height="58" rx="10" fill="none" stroke="#756d60" stroke-width="2"/>
+  <text x="172" y="523" fill="#c97852" font-family="Arial, sans-serif" font-size="22">Spin another topic</text>
+</svg>
