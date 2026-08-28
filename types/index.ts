@@ -68,6 +68,8 @@ export type ProjectCaseStudy = {
   timeline: string;
   hero: string;
   overview: string[];
+  currentStatus?: string;
+  simpleDetails?: ProjectDetailItem[];
   techStack: ProjectDetailItem[];
   dataFlow: string[];
   features: ProjectFeature[];

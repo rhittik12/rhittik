@@ -271,53 +271,71 @@ export default async function Project({ params }: Props) {
                 </div>
               </Section>
 
-              <Section title="Technical Details">
-                <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed mb-5">
-                  The application is built using modern web technologies with
-                  an emphasis on performance, scalability, and maintainability.
-                </p>
-                <SquareBulletDetailList items={project.caseStudy.techStack} />
-              </Section>
+              {project.caseStudy.simpleDetails ? (
+                <>
+                  <Section title="What it does">
+                    <DetailGrid items={project.caseStudy.simpleDetails} />
+                  </Section>
 
-              <Section title="Data Flow">
-                <DataFlow items={project.caseStudy.dataFlow} />
-              </Section>
+                  <Section title="Built with">
+                    <SquareBulletDetailList items={project.caseStudy.techStack} />
+                  </Section>
 
-              <Section title="Features & Functionality">
-                <FeatureList items={project.caseStudy.features} />
-              </Section>
+                  {project.caseStudy.currentStatus && (
+                    <Section title="Current status">
+                      <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+                        {project.caseStudy.currentStatus}
+                      </p>
+                    </Section>
+                  )}
+                </>
+              ) : (
+                <>
+                  <Section title="Technical Details">
+                    <SquareBulletDetailList items={project.caseStudy.techStack} />
+                  </Section>
 
-              <Section title="Performance Optimizations">
-                <DetailGrid items={project.caseStudy.performance} />
-              </Section>
+                  <Section title="Data Flow">
+                    <DataFlow items={project.caseStudy.dataFlow} />
+                  </Section>
 
-              <Section title="Development Process">
-                <OrderedStory items={project.caseStudy.developmentProcess} />
-              </Section>
+                  <Section title="Features & Functionality">
+                    <FeatureList items={project.caseStudy.features} />
+                  </Section>
 
-              <Section title="Challenges">
-                <DetailGrid items={project.caseStudy.challenges} />
-              </Section>
+                  <Section title="Performance Optimizations">
+                    <DetailGrid items={project.caseStudy.performance} />
+                  </Section>
 
-              <Section title="Deployment">
-                <SquareBulletDetailList items={project.caseStudy.deployment} />
-              </Section>
+                  <Section title="Development Process">
+                    <OrderedStory items={project.caseStudy.developmentProcess} />
+                  </Section>
 
-              <Section title="Future Improvements">
-                <DetailGrid items={project.caseStudy.futureImprovements} />
-              </Section>
+                  <Section title="Challenges">
+                    <DetailGrid items={project.caseStudy.challenges} />
+                  </Section>
 
-              <Section title="Lessons Learned">
-                <SquareBulletDetailList
-                  items={project.caseStudy.lessonsLearned}
-                />
-              </Section>
+                  <Section title="Deployment">
+                    <SquareBulletDetailList items={project.caseStudy.deployment} />
+                  </Section>
 
-              <Section title="Final Thoughts">
-                <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
-                  {project.caseStudy.finalThoughts}
-                </p>
-              </Section>
+                  <Section title="Future Improvements">
+                    <DetailGrid items={project.caseStudy.futureImprovements} />
+                  </Section>
+
+                  <Section title="Lessons Learned">
+                    <SquareBulletDetailList
+                      items={project.caseStudy.lessonsLearned}
+                    />
+                  </Section>
+
+                  <Section title="Final Thoughts">
+                    <p className="dark:text-zinc-400 text-zinc-600 leading-relaxed">
+                      {project.caseStudy.finalThoughts}
+                    </p>
+                  </Section>
+                </>
+              )}
             </>
           ) : (
             <div className="mt-8 dark:text-zinc-400 text-zinc-600 leading-relaxed">
