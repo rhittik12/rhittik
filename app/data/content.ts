@@ -39,6 +39,13 @@ import { FiLayers, FiCode, FiCpu } from "react-icons/fi";
 const tinyBlur =
   "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
 
+/**
+ * Creates a Portable Text block object with the given text content.
+ *
+ * @param text - The text content for the block
+ * @param key - A unique key identifier for the block
+ * @returns A PortableTextBlock object with the specified text and key
+ */
 function block(text: string, key: string): PortableTextBlock {
   return {
     _type: "block",
@@ -56,10 +63,26 @@ function block(text: string, key: string): PortableTextBlock {
   } as PortableTextBlock;
 }
 
+/**
+ * Creates a detail object with title and body text.
+ *
+ * @param title - The title text
+ * @param body - The body content
+ * @returns An object containing title and body
+ */
 function detail(title: string, body: string) {
   return { title, body };
 }
 
+/**
+ * Creates a feature object with comprehensive description and engineering details.
+ *
+ * @param title - The feature title
+ * @param description - Brief description of the feature
+ * @param problem - The problem the feature solves
+ * @param engineering - Engineering approach and technical details
+ * @returns An object containing all feature information
+ */
 function feature(
   title: string,
   description: string,

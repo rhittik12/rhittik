@@ -1,5 +1,14 @@
 import { TableValueProps } from "@/types";
 
+/**
+ * Renders a styled HTML table from structured table data.
+ *
+ * @param props - Component props
+ * @param props.value - Object containing table data
+ * @param props.value.caption - Optional caption for the table
+ * @param props.value.table - Table data with rows and cells
+ * @returns A styled HTML table element with heading and body rows, or an error message if data is invalid
+ */
 export default function Table({ value }: { value: TableValueProps }) {
   const { caption, table } = value;
   const tableContent = table?.rows;

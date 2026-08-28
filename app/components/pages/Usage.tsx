@@ -1,5 +1,10 @@
 import { usageSections } from "@/app/data/content";
 
+/**
+ * Displays a section listing tools, technologies, and gadgets used on a daily basis.
+ *
+ * @returns A section component with categorized lists of usage items (tools, technologies, gadgets)
+ */
 export default async function Usage() {
   return (
     <section className="max-w-2xl">

@@ -41,6 +41,16 @@ type codeTypes = {
   };
 };
 
+/**
+ * A syntax-highlighted code block component with optional filename and copy functionality.
+ *
+ * @param props - Component props
+ * @param props.value - Object containing code content, language, and optional filename
+ * @param props.value.code - The code content to display
+ * @param props.value.language - The programming language for syntax highlighting
+ * @param props.value.filename - Optional filename to display above the code block
+ * @returns A styled code block with syntax highlighting and a copy button
+ */
 export default function CodeBlock({ value }: codeTypes) {
   return (
     <div className="my-6">

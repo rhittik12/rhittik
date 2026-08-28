@@ -1,3 +1,8 @@
+/**
+ * An SVG component displaying a decorative geometric hero graphic with gradient colors.
+ *
+ * @returns An SVG element with an interconnected node pattern and gradient styling
+ */
 export default function HeroSvg() {
   return (
     <svg

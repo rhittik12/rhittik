@@ -8,6 +8,15 @@ interface SlideProps extends AnimationProps {
   className?: string;
 }
 
+/**
+ * A component that animates its children with a slide-up and fade-in effect when they come into view.
+ *
+ * @param props - Component props
+ * @param props.children - The content to animate
+ * @param props.className - Optional CSS classes to apply to the wrapper div
+ * @param props.delay - Optional delay in seconds before the animation starts
+ * @returns A motion.div wrapper that animates children when they enter the viewport
+ */
 export const Slide = ({ children, className, delay }: SlideProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInview = useInView(ref as RefObject<Element>, { once: true });

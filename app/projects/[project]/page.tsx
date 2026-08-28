@@ -18,10 +18,24 @@ type Props = {
 const fallbackImage: string =
   "https://res.cloudinary.com/ds8wsxe7d/image/upload/e_improve/v1778141099/ChatGPT_Image_May_7_2026_01_34_35_PM_xtmitf.png";
 
+/**
+ * Retrieves a project by its slug from the projects list.
+ *
+ * @param slug - The URL slug of the project
+ * @returns The matching project object or undefined if not found
+ */
 function getProject(slug: string): ProjectType | undefined {
   return projects.find((project) => project.slug === slug);
 }
 
+/**
+ * A reusable section component with a title and children content.
+ *
+ * @param props - Component props
+ * @param props.title - The section heading
+ * @param props.children - The content to display in the section
+ * @returns A styled section with title and content
+ */
 function Section({
   title,
   children,
@@ -39,6 +53,13 @@ function Section({
   );
 }
 
+/**
+ * Displays project detail items in a responsive grid layout.
+ *
+ * @param props - Component props
+ * @param props.items - Array of detail items with title and body
+ * @returns A grid of detail cards
+ */
 function DetailGrid({ items }: { items: ProjectDetailItem[] }) {
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
@@ -59,6 +80,13 @@ function DetailGrid({ items }: { items: ProjectDetailItem[] }) {
   );
 }
 
+/**
+ * Displays detail items as a bulleted list with square bullets.
+ *
+ * @param props - Component props
+ * @param props.items - Array of detail items with title and body
+ * @returns An unordered list with square bullets and styled items
+ */
 function SquareBulletDetailList({ items }: { items: ProjectDetailItem[] }) {
   return (
     <ul className="space-y-4">
@@ -80,6 +108,13 @@ function SquareBulletDetailList({ items }: { items: ProjectDetailItem[] }) {
   );
 }
 
+/**
+ * Displays project features as a bulleted list.
+ *
+ * @param props - Component props
+ * @param props.items - Array of feature objects with title and description
+ * @returns An unordered list of features with square bullets
+ */
 function FeatureList({ items }: { items: ProjectFeature[] }) {
   return (
     <ul className="space-y-4">
@@ -101,6 +136,13 @@ function FeatureList({ items }: { items: ProjectFeature[] }) {
   );
 }
 
+/**
+ * Displays items in a numbered ordered list format.
+ *
+ * @param props - Component props
+ * @param props.items - Array of text strings to display
+ * @returns An ordered list with numbered badges
+ */
 function OrderedStory({ items }: { items: string[] }) {
   return (
     <ol className="space-y-4">
@@ -118,6 +160,13 @@ function OrderedStory({ items }: { items: string[] }) {
   );
 }
 
+/**
+ * Displays data flow steps with zero-padded numeric indicators.
+ *
+ * @param props - Component props
+ * @param props.items - Array of data flow step descriptions
+ * @returns A grid of numbered data flow cards
+ */
 function DataFlow({ items }: { items: string[] }) {
   return (
     <div className="grid gap-3">
@@ -138,7 +187,13 @@ function DataFlow({ items }: { items: string[] }) {
   );
 }
 
-// Dynamic metadata for SEO
+/**
+ * Generates dynamic metadata for SEO based on the project data.
+ *
+ * @param params - Route parameters
+ * @param params.params.project - The project slug from the URL
+ * @returns Metadata object for the project page
+ */
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject(params.project);
 
@@ -162,6 +217,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+/**
+ * The project detail page displaying comprehensive information about a specific project.
+ *
+ * @param props - Component props
+ * @param props.params - Route parameters
+ * @param props.params.project - The project slug from the URL
+ * @returns A detailed project page with case study, features, tech stack, and more
+ */
 export default async function Project({ params }: Props) {
   const project = getProject(params.project);
 

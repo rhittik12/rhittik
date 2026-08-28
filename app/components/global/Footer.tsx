@@ -3,6 +3,11 @@ import vercellogo from "@/public/vercel.svg";
 import nextjslogo from "@/public/nextjs.svg";
 import RenderChildren from "./RenderChildren";
 
+/**
+ * The site footer component displaying technology credits and copyright information.
+ *
+ * @returns A footer element with links to Next.js and Vercel, and copyright notice
+ */
 export default function Footer() {
   return (
     <RenderChildren>

@@ -1,5 +1,14 @@
 import { MouseEventHandler } from "react";
 
+/**
+ * A button component for selecting a year, with visual indication of the currently selected year.
+ *
+ * @param props - Component props
+ * @param props.year - The year this button represents
+ * @param props.currentYear - The currently selected year (used to determine if this button is active)
+ * @param props.onClick - Optional click handler for when the button is clicked
+ * @returns A styled button that highlights when it matches the current year
+ */
 export default function YearButton({
   year,
   currentYear,

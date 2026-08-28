@@ -1,6 +1,11 @@
 import ContributionGraph from "./ContributionGraph";
 import { Slide } from "@/app/animation/Slide";
 
+/**
+ * A wrapper component that displays the GitHub contribution graph section with a heading.
+ *
+ * @returns A section component with animated heading and contribution graph
+ */
 export default function GithubCalendarComponent() {
   return (
     <section>

@@ -3,6 +3,11 @@ import { Slide } from "../../animation/Slide";
 import RefLink from "../shared/RefLink";
 import { heroes } from "@/app/data/content";
 
+/**
+ * Displays a list of tech heroes and inspirational figures.
+ *
+ * @returns A section component showing a grid of heroes with checkboxes indicating whether they've been met
+ */
 export default async function Heroes() {
   return (
     <section className="mt-32 max-w-5xl">

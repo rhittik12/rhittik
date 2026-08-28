@@ -9,6 +9,19 @@ import RefLink from "./RefLink";
 import Table from "./Table";
 import { TableValueProps } from "@/types";
 
+/**
+ * Custom components configuration for rendering Portable Text content.
+ * Defines how different content types, blocks, marks, and lists are rendered.
+ *
+ * Includes custom rendering for:
+ * - Images with lazy loading and blur placeholders
+ * - Code blocks with syntax highlighting
+ * - YouTube video embeds
+ * - Tables
+ * - Headings with anchor links
+ * - Blockquotes, links, and inline code
+ * - Bullet and numbered lists
+ */
 export const CustomPortableText: PortableTextComponents = {
   types: {
     image: ({ value }: { value?: { image?: string; lqip?: string; alt?: string; caption?: string } }) => {

@@ -8,6 +8,14 @@ import { getGitHubYears } from "@/app/utils/calculate-years";
 import EmptyState from "../shared/EmptyState";
 import { IoIosAnalytics } from "react-icons/io";
 
+/**
+ * Displays a GitHub contribution graph with year selection buttons.
+ *
+ * @returns A component showing the GitHub contribution calendar with theme support and year filtering
+ *
+ * @remarks
+ * Requires NEXT_PUBLIC_GITHUB_USERNAME and NEXT_PUBLIC_GITHUB_JOIN_YEAR environment variables
+ */
 export default function ContributionGraph() {
   const [calendarYear, setCalendarYear] = useState<number | undefined>(
     undefined

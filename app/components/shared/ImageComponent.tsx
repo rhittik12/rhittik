@@ -8,6 +8,16 @@ type imageProp = {
   alt: string;
 };
 
+/**
+ * A responsive image component with lazy loading and optional blur placeholder.
+ *
+ * @param props - Component props
+ * @param props.src - Object containing image source data
+ * @param props.src.image - The image URL
+ * @param props.src.lqip - Optional low-quality image placeholder for progressive loading
+ * @param props.alt - Alt text for accessibility
+ * @returns A Next.js Image component with optimized loading, or null if no image URL
+ */
 export default function ImageComponent({ src, alt }: imageProp) {
   if (!src?.image) return null;
 

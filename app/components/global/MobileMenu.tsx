@@ -10,6 +10,11 @@ import {
 } from "react-icons/hi";
 import Logo from "../../../public/logo.png";
 
+/**
+ * A mobile hamburger menu component that displays a full-screen navigation overlay.
+ *
+ * @returns A toggle button and full-screen navigation menu for mobile devices
+ */
 export default function MobileMenu() {
   const [navShow, setNavShow] = useState(false);
   const data = [
@@ -25,6 +30,9 @@ export default function MobileMenu() {
     },
   ];
 
+  /**
+   * Toggles the mobile menu visibility and prevents body scrolling when open.
+   */
   const onToggleNav = () => {
     setNavShow((status) => {
       if (status) {

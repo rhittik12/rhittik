@@ -6,6 +6,15 @@ type HeadingType = {
   children?: React.ReactNode;
 };
 
+/**
+ * A page heading component with title, description, and optional children with slide animation.
+ *
+ * @param props - Component props
+ * @param props.title - The main heading text to display
+ * @param props.description - Optional description text below the heading
+ * @param props.children - Optional additional content to render below the description
+ * @returns A header element with animated heading, description, and children
+ */
 export default function PageHeading({
   title,
   description,

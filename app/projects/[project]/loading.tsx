@@ -1,3 +1,8 @@
+/**
+ * A loading skeleton component displayed while project data is being fetched.
+ *
+ * @returns A skeleton UI with animated pulse effects for the project detail page
+ */
 export default function Loading() {
   return (
     <div className="max-w-3xl mx-auto lg:px-0 px-8">

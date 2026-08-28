@@ -1,3 +1,8 @@
+/**
+ * An SVG icon component representing the sun for light theme.
+ *
+ * @returns An SVG element displaying a sun icon with rays
+ */
 export default function SunIcon() {
   return (
     <svg

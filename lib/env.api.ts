@@ -7,7 +7,16 @@ export const umamiSiteId = checkValue(
   "https://umami.is"
 );
 
-// Validate env varaibles
+/**
+ * Validates that an environment variable is defined and returns its value.
+ *
+ * @template T - The type of the environment variable value
+ * @param value - The environment variable value to validate
+ * @param errorMsg - The error message to display if the value is undefined
+ * @param url - Optional URL to documentation for generating the required API key
+ * @returns The validated environment variable value
+ * @throws {Error} If the value is undefined
+ */
 function checkValue<T>(
   value: T | undefined,
   errorMsg: string,

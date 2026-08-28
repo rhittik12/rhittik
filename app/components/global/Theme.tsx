@@ -4,11 +4,19 @@ import { useTheme } from "next-themes";
 import SunIcon from "../../assets/icons/SunIcon";
 import MoonIcon from "../../assets/icons/MoonIcon";
 
+/**
+ * A theme toggle button component that switches between light and dark modes.
+ *
+ * @returns A button that toggles between light and dark themes with animated icons
+ */
 export default function Theme() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [hasMounted, setHasMounted] = useState(false);
   const currentTheme = theme === "system" ? systemTheme : theme;
 
+  /**
+   * Toggles the theme between light and dark modes.
+   */
   function toggleTheme() {
     return currentTheme === "light" ? setTheme("dark") : setTheme("light");
   }

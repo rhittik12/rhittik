@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "Error 404",
 };
 
+/**
+ * The custom 404 not found page component.
+ *
+ * @returns A 404 error page with a friendly message
+ */
 export default function NotFound() {
   return (
     <NotFoundComponent

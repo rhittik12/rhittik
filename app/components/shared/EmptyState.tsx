@@ -8,6 +8,16 @@ type stateType = {
   message?: string;
 };
 
+/**
+ * A component that displays an empty state message when no content is available.
+ *
+ * @param props - Component props
+ * @param props.value - The type of content that is missing (used in default title and message)
+ * @param props.icon - Optional custom icon to display (defaults to a searching duck image)
+ * @param props.title - Optional custom title (defaults to "No {value} Found")
+ * @param props.message - Optional custom message (defaults to a generic message about checking back later)
+ * @returns A styled empty state component with an icon, title, and message
+ */
 export default function EmptyState({ value, title, icon, message }: stateType) {
   return (
     <div className="w-full flex flex-col items-center text-center dark:bg-primary-bg bg-zinc-100 border border-dashed dark:border-zinc-700 border-zinc-200 rounded-md px-6 py-8">

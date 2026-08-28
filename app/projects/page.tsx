@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * The Projects page displaying a grid of all projects with their logos and taglines.
+ *
+ * @returns The projects listing page showing clickable project cards or an empty state
+ */
 export default async function Project() {
   return (
     <main className="max-w-7xl mx-auto md:px-16 px-6">

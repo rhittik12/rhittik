@@ -1,3 +1,8 @@
+/**
+ * An SVG icon component representing the moon for dark theme.
+ *
+ * @returns An SVG element displaying a moon icon with craters
+ */
 export default function MoonIcon() {
   return (
     <svg

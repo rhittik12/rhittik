@@ -1,3 +1,10 @@
+/**
+ * An embedded YouTube video player component.
+ *
+ * @param props - Component props
+ * @param props.videoId - The YouTube video ID to embed (returns null if not provided)
+ * @returns An iframe element with the embedded YouTube video, or null if no videoId
+ */
 export default function YoutubeIframe({ videoId }: { videoId: string | null }) {
   if (!videoId) {
     return null;

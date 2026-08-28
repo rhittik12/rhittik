@@ -50,6 +50,13 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * The root layout component wrapping all pages with navigation, footer, and theme provider.
+ *
+ * @param props - Component props
+ * @param props.children - The page content to render
+ * @returns The root HTML structure with fonts, theme, navbar, content, footer, and analytics
+ */
 export default function RootLayout({
   children,
 }: {

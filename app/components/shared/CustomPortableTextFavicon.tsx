@@ -3,6 +3,14 @@ import { PortableTextComponents } from "@portabletext/react";
 import Favicon from "../../utils/favicon";
 import RefLink from "./RefLink";
 
+/**
+ * Custom Portable Text components configuration that displays favicons next to links.
+ *
+ * Provides custom rendering for:
+ * - H3 headings with anchor links
+ * - Links with favicon icons
+ * - Bullet lists
+ */
 export const CustomPortableTextFavicon: PortableTextComponents = {
   block: {
     h3: ({ children }) => (

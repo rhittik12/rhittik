@@ -6,6 +6,14 @@ type props = {
   description: string;
 };
 
+/**
+ * A 404/not found page component with a custom title and description.
+ *
+ * @param props - Component props
+ * @param props.title - The heading text for the not found page
+ * @param props.description - The description text explaining the error
+ * @returns A styled not found page with an image, title, and description
+ */
 export default function NotFoundComponent({ title, description }: props) {
   return (
     <main className="min-h-[60vh] max-w-7xl mx-auto md:px-16 px-6">

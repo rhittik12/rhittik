@@ -2,6 +2,15 @@
 import { useState } from "react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
+/**
+ * An expandable/collapsible accordion component for displaying questions and answers.
+ *
+ * @param props - Component props
+ * @param props.id - Unique identifier for the accordion item
+ * @param props.question - The question or heading text to display
+ * @param props.answer - The answer or content to show when expanded
+ * @returns An accordion component that toggles between expanded and collapsed states
+ */
 export default function Accordion({
   id,
   question,

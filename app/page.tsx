@@ -5,6 +5,11 @@ import { Slide } from "./animation/Slide";
 import ContributionGraph from "./components/pages/GithubCalendarComponent";
 import { profile } from "./data/content";
 
+/**
+ * The home page component displaying the profile hero section, contribution graph, and work experience.
+ *
+ * @returns The main landing page with profile headline, bio, social links, GitHub contributions, and job history
+ */
 export default async function Home() {
   return (
     <main className="max-w-7xl mx-auto md:px-16 px-6 lg:mt-32 mt-20">

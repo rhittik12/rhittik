@@ -5,9 +5,19 @@ import { useState } from "react";
 import funImage from "@/public/yeah-right.png";
 import { BiCheckbox, BiSolidCheckboxChecked } from "react-icons/bi";
 
+/**
+ * An interactive easter egg component that displays a checkbox and reveals a fun image when clicked.
+ *
+ * @param props - Component props
+ * @param props.isMet - Whether the condition has been met (changes checkbox appearance)
+ * @returns A button with a checkbox icon that triggers a temporary image animation
+ */
 export default function EasterEgg({ isMet }: { isMet: boolean }) {
   const [image, setImage] = useState(false);
 
+  /**
+   * Triggers the display of the easter egg image for 3 seconds.
+   */
   const toggleImage = () => {
     const interval = setInterval(() => {
       setImage(true);

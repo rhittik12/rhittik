@@ -5,7 +5,20 @@ type faviconType = {
   alt: string;
 };
 
+/**
+ * Displays a favicon image for a given domain using Google's favicon service.
+ *
+ * @param props - Component props
+ * @param props.domain - The domain URL to fetch the favicon for
+ * @returns A Next.js Image component displaying the domain's favicon
+ */
 export default function Favicon({ domain }: faviconType) {
+  /**
+   * Extracts the primary domain name from a URL.
+   *
+   * @param url - The URL to extract the domain from
+   * @returns The primary domain name (e.g., "google" from "www.google.com") or undefined
+   */
   function extractDomain(url: string) {
     const match = url.match(
       /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:/.\n]+\.[a-z]{2,})(?:\/|$)/i

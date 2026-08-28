@@ -5,6 +5,11 @@ import Theme from "./Theme";
 import RenderChildren from "./RenderChildren";
 import MobileMenu from "./MobileMenu";
 
+/**
+ * The main navigation bar component with logo, navigation links, and theme toggle.
+ *
+ * @returns A header element with responsive navigation (desktop menu and mobile hamburger menu)
+ */
 export default function Navbar() {
   const data = [
     {

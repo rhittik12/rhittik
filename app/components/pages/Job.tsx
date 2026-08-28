@@ -6,6 +6,11 @@ import EmptyState from "../shared/EmptyState";
 import { RiBriefcase3Fill } from "react-icons/ri";
 import { jobs } from "@/app/data/content";
 
+/**
+ * Displays a work experience section showing all jobs with company logos, titles, and date ranges.
+ *
+ * @returns A section component displaying a grid of job entries or an empty state if no jobs exist
+ */
 export default async function Job() {
   return (
     <section className="mt-32">

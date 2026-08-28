@@ -1,8 +1,14 @@
-/*
-  This function generates an array of years from the iniital year a user joins GitHub to the current year.
-  if joinYear = 2020, result = [2020, 2021, 2022, 2023, 2024] 
-*/
-
+/**
+ * Generates an array of years from the initial year a user joins GitHub to the current year.
+ *
+ * @param joinYear - The year the user joined GitHub
+ * @returns An array of years in descending order (most recent first)
+ *
+ * @example
+ * ```typescript
+ * getGitHubYears(2020) // Returns [2026, 2025, 2024, 2023, 2022, 2021, 2020]
+ * ```
+ */
 export function getGitHubYears(joinYear: number | undefined): number[] {
   if (!joinYear) return [];
 
