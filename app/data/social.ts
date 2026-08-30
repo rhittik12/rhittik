@@ -30,4 +30,11 @@ export const socialLinks = [
     icon: BiLogoLinkedinSquare,
     status: "social",
   },
+  {
+    id: 3,
+    name: "X",
+    url: "https://x.com/rkbdevir7",
+    icon: FaSquareXTwitter,
+    status: "social",
+  },
 ];
