@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-transition-router";
 import { Metadata } from "next";
 import EmptyState from "../components/shared/EmptyState";
 import { Slide } from "../animation/Slide";
