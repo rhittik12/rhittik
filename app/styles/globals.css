@@ -21,7 +21,7 @@ body {
   display: grid;
   place-items: center;
   pointer-events: none;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .page-transition__bars {
@@ -33,7 +33,7 @@ body {
 
 .page-transition__bar {
   background: var(--page-transition-color, #97f3bd);
-  transform: scaleX(0);
+  transform: scaleX(1);
   transform-origin: left center;
   will-change: transform;
 }

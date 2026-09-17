@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { TransitionRouter } from "next-transition-router";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
@@ -61,21 +61,102 @@ function PageTransition({ children }: { children: React.ReactNode }) {
             wordsClass: "page-transition__word",
         });
 
-        gsap.set(overlayRef.current, { autoAlpha: 0 });
-        gsap.set(barsRef.current.children, {
-            scaleX: 0,
-            transformOrigin: "left center",
-        });
+        overlayRef.current.style.setProperty(
+            "--page-transition-color",
+            getTransitionColor(window.location.pathname),
+        );
         gsap.set(splitTextRef.current.words, {
             yPercent: 110,
             willChange: "transform",
         });
+
+        timelineRef.current = gsap
+            .timeline({
+                onComplete: () => gsap.set(overlayRef.current, { autoAlpha: 0 }),
+            })
+            .set(overlayRef.current, { autoAlpha: 1 })
+            .set(barsRef.current.children, {
+                scaleX: 1,
+                transformOrigin: "left center",
+            })
+            .to(splitTextRef.current.words, {
+                yPercent: 0,
+                duration: 0.7,
+                ease: "power4.out",
+                stagger: 0.06,
+            })
+            .to(barsRef.current.children, {
+                scaleX: 0,
+                duration: 0.7,
+                ease: "power3.inOut",
+                stagger: 0.08,
+                transformOrigin: "right center",
+            });
 
         return () => {
             timelineRef.current?.kill();
             splitTextRef.current?.revert();
             splitTextRef.current = null;
         };
+    }, []);
+
+    useEffect(() => {
+        const handlePopState = () => {
+            if (!overlayRef.current || !barsRef.current || !splitTextRef.current) {
+                return;
+            }
+
+            splitTextRef.current.revert();
+            titleRef.current!.textContent = getTransitionTitle(
+                window.location.pathname,
+            );
+            overlayRef.current.style.setProperty(
+                "--page-transition-color",
+                getTransitionColor(window.location.pathname),
+            );
+            splitTextRef.current = new SplitText(titleRef.current!, {
+                type: "words",
+                wordsClass: "page-transition__word",
+            });
+
+            timelineRef.current?.kill();
+            timelineRef.current = gsap.timeline({
+                onComplete: () => gsap.set(overlayRef.current, { autoAlpha: 0 }),
+            });
+            timelineRef.current
+                .set(overlayRef.current, { autoAlpha: 1 })
+                .set(barsRef.current.children, {
+                    scaleX: 0,
+                    transformOrigin: "left center",
+                })
+                .set(splitTextRef.current.words, { yPercent: 110 })
+                .to(barsRef.current.children, {
+                    scaleX: 1,
+                    duration: 0.7,
+                    ease: "power3.inOut",
+                    stagger: 0.08,
+                })
+                .to(
+                    splitTextRef.current.words,
+                    {
+                        yPercent: 0,
+                        duration: 0.7,
+                        ease: "power4.out",
+                        stagger: 0.06,
+                    },
+                    "-=0.45",
+                )
+                .to(barsRef.current.children, {
+                    scaleX: 0,
+                    duration: 0.7,
+                    ease: "power3.inOut",
+                    stagger: 0.08,
+                    transformOrigin: "right center",
+                });
+        };
+
+        window.addEventListener("popstate", handlePopState);
+        return () => window.removeEventListener("popstate", handlePopState);
     }, []);
 
     const leave = (next: () => void, _from?: string, to?: string) => {
