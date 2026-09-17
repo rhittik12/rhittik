@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "next-transition-router";
 import Logo from "@/public/logo.png";
 import Theme from "./Theme";
 import RenderChildren from "./RenderChildren";

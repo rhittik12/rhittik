@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { Link } from "next-transition-router";
 import Image from "next/image";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
