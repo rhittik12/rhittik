@@ -1,70 +1,66 @@
-import Image from "next/image";
-import { formatDate } from "../../utils/date";
 import { Slide } from "../../animation/Slide";
-import RefLink from "../shared/RefLink";
-import EmptyState from "../shared/EmptyState";
-import { RiBriefcase3Fill } from "react-icons/ri";
-import { jobs } from "@/app/data/content";
 
 export default async function Job() {
   return (
-    <section className="mt-32">
+    <section className="relative isolate mt-32">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 opacity-0 dark:opacity-100"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 8% 16%, rgba(51, 224, 146, 0.28) 0 1px, transparent 2px), radial-gradient(circle at 19% 58%, rgba(51, 224, 146, 0.12) 0 1px, transparent 2px), radial-gradient(circle at 34% 32%, rgba(51, 224, 146, 0.2) 0 1px, transparent 2px), radial-gradient(circle at 47% 82%, rgba(51, 224, 146, 0.1) 0 1px, transparent 2px), radial-gradient(circle at 63% 21%, rgba(51, 224, 146, 0.3) 0 1px, transparent 2px), radial-gradient(circle at 78% 62%, rgba(51, 224, 146, 0.14) 0 1px, transparent 2px), radial-gradient(circle at 91% 35%, rgba(51, 224, 146, 0.24) 0 1px, transparent 2px), radial-gradient(circle at 86% 91%, rgba(51, 224, 146, 0.1) 0 1px, transparent 2px)",
+        }}
+      />
       <Slide delay={0.16}>
-        <div className="mb-16">
+        <div className="relative z-10 mb-10">
           <h2 className="font-incognito text-4xl mb-4 font-bold tracking-tight">
             Work Experience
           </h2>
         </div>
       </Slide>
 
-      {jobs.length > 0 ? (
-        <Slide delay={0.18}>
-          <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-12 gap-y-10">
-            {jobs.map((job) => (
-              <div
-                key={job._id}
-                className="flex items-start lg:gap-x-6 gap-x-4 max-w-2xl relative before:absolute before:bottom-0 before:top-[5rem] before:left-9 before:w-[1px] before:h-[calc(100%-70px)] dark:before:bg-zinc-800 before:bg-zinc-200"
-              >
-                <RefLink
-                  href={job.url}
-                  className="grid place-items-center dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 min-h-[80px] min-w-[80px] p-2 rounded-md overflow-clip relative"
-                >
-                  <Image
-                    src={job.logo}
-                    className="object-cover duration-300"
-                    alt={`${job.name} logo`}
-                    width={50}
-                    height={50}
-                  />
-                </RefLink>
-                <div className="flex flex-col items-start">
-                  <h3 className="text-xl font-semibold">{job.name}</h3>
-                  <p>{job.jobTitle}</p>
-                  <time className="text-sm text-zinc-500 mt-2 tracking-widest uppercase">
-                    {formatDate(job.startDate)} -{" "}
-                    {job.endDate ? (
-                      formatDate(job.endDate)
-                    ) : (
-                      <span className="dark:text-primary-color text-tertiary-color">
-                        Present
-                      </span>
-                    )}
-                  </time>
-                  <p className="tracking-tight dark:text-zinc-400 text-zinc-600 my-4">
-                    {job.description}
-                  </p>
-                </div>
+      <Slide delay={0.18}>
+        <article className="relative z-10 border dark:border-zinc-800 border-zinc-200 dark:bg-primary-bg bg-secondary-bg px-6 sm:px-8 py-7 sm:py-8">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 border-b dark:border-zinc-800 border-zinc-200 pb-7">
+            <div className="flex items-start gap-4">
+              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl border dark:border-zinc-800 border-zinc-200 dark:bg-zinc-900/50 bg-white/50 text-sm font-semibold dark:text-primary-color text-tertiary-color">
+                SE
               </div>
-            ))}
+              <div>
+                <h3 className="font-incognito text-2xl font-semibold tracking-tight">
+                  Freelance Developer
+                </h3>
+                <p className="mt-1 text-base dark:text-zinc-400 text-zinc-600">
+                  Self-Employed · Remote · Contract
+                </p>
+              </div>
+            </div>
+            <time className="shrink-0 text-sm font-medium dark:text-zinc-300 text-zinc-600 sm:pt-1">
+              April 2025 — Present
+            </time>
           </div>
-        </Slide>
-      ) : (
-        <EmptyState
-          icon={<RiBriefcase3Fill />}
-          title="Work Experience Not Provided"
-          message="We could not find any work experience at the moment. Add entries in app/data/content.ts to show them here."
-        />
-      )}
+
+          <div className="pt-8">
+            <p className="max-w-5xl text-[1.19rem] leading-relaxed dark:text-zinc-300 text-zinc-700">
+              Delivered full-stack systems for restaurant operations, salon booking services, Uk-based hiring management, and school administration as an independent contractor.
+            </p>
+            <ul className="mt-8 list-[disc] marker:text-[1.5em] space-y-5 pl-5 text-base leading-relaxed dark:text-zinc-300 text-zinc-700 marker:dark:text-primary-color marker:text-tertiary-color">
+              <li>
+                Built an ordering system for a restaurant, handling menu updates, table orders, kitchen status, and customer billing.
+              </li>
+              <li>
+                Created an online booking portal for a salon, where customers could browse services, choose stylists, check available slots, and book appointments.
+              </li>
+              <li>
+                Worked on an existing Uk-based hiring platform, extending vendor, job, recruiter, and candidate workflows across the product.
+              </li>
+              <li>
+                Shipped a school management system for a US-based education provider covering student records, classes, attendance, fee collection, and exam management.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </Slide>
     </section>
   );
 }
